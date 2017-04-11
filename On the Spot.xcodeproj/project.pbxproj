@@ -12,6 +12,12 @@
 		CF03C4511E972737001149DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF03C44F1E972737001149DE /* Main.storyboard */; };
 		CF03C4531E972737001149DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF03C4521E972737001149DE /* Assets.xcassets */; };
 		CF03C4561E972737001149DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF03C4541E972737001149DE /* LaunchScreen.storyboard */; };
+		CF68A92B1E9D264A004A2B66 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF68A9251E9D264A004A2B66 /* Roboto-Black.ttf */; };
+		CF68A92C1E9D264A004A2B66 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF68A9261E9D264A004A2B66 /* Roboto-Bold.ttf */; };
+		CF68A92D1E9D264A004A2B66 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF68A9271E9D264A004A2B66 /* Roboto-Light.ttf */; };
+		CF68A92E1E9D264A004A2B66 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF68A9281E9D264A004A2B66 /* Roboto-Medium.ttf */; };
+		CF68A92F1E9D264A004A2B66 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF68A9291E9D264A004A2B66 /* Roboto-Regular.ttf */; };
+		CF68A9301E9D264A004A2B66 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF68A92A1E9D264A004A2B66 /* Roboto-Thin.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +28,12 @@
 		CF03C4521E972737001149DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF03C4551E972737001149DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF03C4571E972737001149DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF68A9251E9D264A004A2B66 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		CF68A9261E9D264A004A2B66 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		CF68A9271E9D264A004A2B66 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		CF68A9281E9D264A004A2B66 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		CF68A9291E9D264A004A2B66 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		CF68A92A1E9D264A004A2B66 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +66,12 @@
 		CF03C44A1E972737001149DE /* On the Spot */ = {
 			isa = PBXGroup;
 			children = (
+				CF68A9251E9D264A004A2B66 /* Roboto-Black.ttf */,
+				CF68A9261E9D264A004A2B66 /* Roboto-Bold.ttf */,
+				CF68A9271E9D264A004A2B66 /* Roboto-Light.ttf */,
+				CF68A9281E9D264A004A2B66 /* Roboto-Medium.ttf */,
+				CF68A9291E9D264A004A2B66 /* Roboto-Regular.ttf */,
+				CF68A92A1E9D264A004A2B66 /* Roboto-Thin.ttf */,
 				CF03C44B1E972737001149DE /* AppDelegate.swift */,
 				CF03C44D1E972737001149DE /* ViewController.swift */,
 				CF03C44F1E972737001149DE /* Main.storyboard */,
@@ -126,7 +144,13 @@
 			files = (
 				CF03C4561E972737001149DE /* LaunchScreen.storyboard in Resources */,
 				CF03C4531E972737001149DE /* Assets.xcassets in Resources */,
+				CF68A92F1E9D264A004A2B66 /* Roboto-Regular.ttf in Resources */,
+				CF68A92D1E9D264A004A2B66 /* Roboto-Light.ttf in Resources */,
+				CF68A92E1E9D264A004A2B66 /* Roboto-Medium.ttf in Resources */,
+				CF68A92C1E9D264A004A2B66 /* Roboto-Bold.ttf in Resources */,
 				CF03C4511E972737001149DE /* Main.storyboard in Resources */,
+				CF68A92B1E9D264A004A2B66 /* Roboto-Black.ttf in Resources */,
+				CF68A9301E9D264A004A2B66 /* Roboto-Thin.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +328,7 @@
 				CF03C45C1E972737001149DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
