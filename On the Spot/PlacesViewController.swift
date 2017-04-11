@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  PlacesViewController.swift
 //  On the Spot
 //
 //  Created by Ramesh Parthasarathy on 4/6/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PlacesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
