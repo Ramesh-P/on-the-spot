@@ -24,6 +24,7 @@ class PlacesViewController: UIViewController {
     @IBOutlet weak var location: UILabel!
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var places: UICollectionView!
+    @IBOutlet weak var locationView: UIView!
     
     // MARK: Actions
     @IBAction func menu(_ sender: UIBarButtonItem) {
@@ -43,21 +44,63 @@ class PlacesViewController: UIViewController {
         
         super.viewWillAppear(animated)
         
+        // Subscribe to keyboard notifications
+        subscribeToKeybcardNotifications()
+        
         // Layout
         setFontSize()
         setFont()
         setPlaceholderText()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        
+        // Unsubscribe to keyboard notifications
+        unsubscribeFromKeyboardNotifications()
     }
 
     override func didReceiveMemoryWarning() {
         
         super.didReceiveMemoryWarning()
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        // Dismiss keyboard
+        view.endEditing(true)
+    }
 }
 
 extension PlacesViewController {
     
     // MARK: Class Functions
+    func subscribeToKeybcardNotifications() {
+        
+        // Add keyboard notification observers
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        
+        // Reposition textfield on keyboard display
+        view.frame.origin.y = -(locationView.frame.size.height) + (UIApplication.shared.statusBarFrame.height) + (navigationController?.navigationBar.frame.height)!
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        
+        // Reposition textfield on keyboard dismiss
+        view.frame.origin.y = (UIApplication.shared.statusBarFrame.height) + (navigationController?.navigationBar.frame.height)!
+    }
+    
+    func unsubscribeFromKeyboardNotifications() {
+        
+        // Remove keyboard notification observers
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
     
     // MARK: Class Helpers
     func setFontSize() {

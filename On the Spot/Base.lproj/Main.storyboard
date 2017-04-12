@@ -171,6 +171,7 @@
                     <connections>
                         <outlet property="address" destination="GvX-qo-X25" id="sta-Wu-gUZ"/>
                         <outlet property="location" destination="dfv-N0-SDG" id="EW5-t8-xGX"/>
+                        <outlet property="locationView" destination="xgl-8Y-5Ff" id="a2t-Wk-S5c"/>
                         <outlet property="places" destination="3VN-KD-Ugg" id="Get-i5-zlx"/>
                         <outlet property="searchField" destination="5Sf-F8-LmM" id="RnM-OZ-zqp"/>
                     </connections>
