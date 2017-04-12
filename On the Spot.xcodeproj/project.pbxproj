@@ -18,6 +18,7 @@
 		CF68A92E1E9D264A004A2B66 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF68A9281E9D264A004A2B66 /* Roboto-Medium.ttf */; };
 		CF68A92F1E9D264A004A2B66 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF68A9291E9D264A004A2B66 /* Roboto-Regular.ttf */; };
 		CF68A9301E9D264A004A2B66 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF68A92A1E9D264A004A2B66 /* Roboto-Thin.ttf */; };
+		CFAF7ECC1E9E942D000A3FCF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAF7ECB1E9E942D000A3FCF /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		CF68A9281E9D264A004A2B66 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		CF68A9291E9D264A004A2B66 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		CF68A92A1E9D264A004A2B66 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		CFAF7ECB1E9E942D000A3FCF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,18 +68,19 @@
 		CF03C44A1E972737001149DE /* On the Spot */ = {
 			isa = PBXGroup;
 			children = (
+				CF03C4571E972737001149DE /* Info.plist */,
+				CF03C44B1E972737001149DE /* AppDelegate.swift */,
+				CF03C44D1E972737001149DE /* PlacesViewController.swift */,
 				CF68A9251E9D264A004A2B66 /* Roboto-Black.ttf */,
 				CF68A9261E9D264A004A2B66 /* Roboto-Bold.ttf */,
 				CF68A9271E9D264A004A2B66 /* Roboto-Light.ttf */,
 				CF68A9281E9D264A004A2B66 /* Roboto-Medium.ttf */,
 				CF68A9291E9D264A004A2B66 /* Roboto-Regular.ttf */,
 				CF68A92A1E9D264A004A2B66 /* Roboto-Thin.ttf */,
-				CF03C44B1E972737001149DE /* AppDelegate.swift */,
-				CF03C44D1E972737001149DE /* PlacesViewController.swift */,
-				CF03C44F1E972737001149DE /* Main.storyboard */,
 				CF03C4521E972737001149DE /* Assets.xcassets */,
 				CF03C4541E972737001149DE /* LaunchScreen.storyboard */,
-				CF03C4571E972737001149DE /* Info.plist */,
+				CF03C44F1E972737001149DE /* Main.storyboard */,
+				CFAF7ECB1E9E942D000A3FCF /* Constants.swift */,
 			);
 			path = "On the Spot";
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 			files = (
 				CF03C44E1E972737001149DE /* PlacesViewController.swift in Sources */,
 				CF03C44C1E972737001149DE /* AppDelegate.swift in Sources */,
+				CFAF7ECC1E9E942D000A3FCF /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
