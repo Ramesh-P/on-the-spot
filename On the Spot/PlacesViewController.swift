@@ -49,7 +49,7 @@ class PlacesViewController: UIViewController {
         
         // Layout
         setFontSize()
-        setFont()
+        setFontStyle()
         setPlaceholderText()
     }
     
@@ -130,9 +130,14 @@ extension PlacesViewController {
         }
     }
     
-    func setFont() {
+    func setFontStyle() {
         
-        // Set font
+        // Set font style
+        let locationText = NSMutableAttributedString(string: location.text!, attributes: [NSFontAttributeName: UIFont(name: "Roboto-Regular", size: locationFontSize)!])
+        locationText.addAttribute(NSForegroundColorAttributeName, value: UIColor(red: 228.0/255, green: 227.0/255, blue: 225.0/255, alpha: 1.0), range: NSRange(location:0,length:9))
+        
+        location.attributedText = locationText
+        address.font = UIFont(name: "Roboto-Regular", size: addressFontSize)
         searchField.font = UIFont(name: "Roboto-Regular", size: searchFontSize)
     }
     
