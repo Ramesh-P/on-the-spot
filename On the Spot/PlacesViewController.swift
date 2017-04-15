@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
 // MARK: PlacesViewController
 class PlacesViewController: UIViewController {
@@ -18,6 +19,10 @@ class PlacesViewController: UIViewController {
     var searchFontSize: CGFloat = CGFloat()
     var placesFontSize: CGFloat = CGFloat()
     var placeholderText: NSAttributedString = NSAttributedString()
+    let locationManager: CLLocationManager = CLLocationManager()
+    var latitude: Double = Double()
+    var longitude: Double = Double()
+    var formattedAddress: String = String()
     
     // MARK: Outlets
     @IBOutlet weak var address: UILabel!
@@ -29,6 +34,7 @@ class PlacesViewController: UIViewController {
     // MARK: Actions
     @IBAction func menu(_ sender: UIBarButtonItem) {
         
+        // TO DO: Display menu options
     }
 
     // MARK: Overrides
@@ -38,6 +44,7 @@ class PlacesViewController: UIViewController {
         
         // Initialize
         searchField.delegate = self
+        locationManager.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,9 +55,12 @@ class PlacesViewController: UIViewController {
         subscribeToKeybcardNotifications()
         
         // Layout
-        setFontSize()
+        getFontSize()
         setFontStyle()
         setPlaceholderText()
+        
+        // Get authorization to track user location
+        locationManager.requestWhenInUseAuthorization()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -102,29 +112,60 @@ extension PlacesViewController {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
+    func getGeoLocation() {
+        
+        let location = CLLocation(latitude: latitude, longitude: longitude)
+        
+        CLGeocoder().reverseGeocodeLocation(location, completionHandler: { (placemarks, error) -> Void in
+            
+            // Guard if no location was returned
+            guard (error == nil) else {
+                // TO DO: display error
+                return
+            }
+            
+            // Get location address
+            if (placemarks?.count)! > 0 {
+                let placemark = placemarks?[0]
+                let addressDictionary = placemark?.addressDictionary
+                let addressArray = (addressDictionary?["FormattedAddressLines"] as? [String])!
+                
+                // Display address
+                self.formattedAddress = addressArray.joined(separator: ", ")
+                self.address.text = (self.formattedAddress != "") ? self.formattedAddress : "Unknown Location"
+                
+                // Display location
+                self.location.text = "Location: " + String(format: "%.6f", self.latitude) + ", " + String(format: "%.6f", self.longitude)
+                
+                // Set style
+                self.setFontStyle()
+            }
+        })
+    }
+    
     // MARK: Class Helpers
-    func setFontSize() {
+    func getFontSize() {
         
         // Get screen height
         let screenHeight = UIScreen.main.bounds.size.height
         
-        // Set font size
+        // Get font size
         switch screenHeight {
         case Constants.ScreenHeight.phoneSE:
-            addressFontSize = 13.0
-            locationFontSize = 12.0
-            searchFontSize = 13.0
-            placesFontSize = 11.0
+            addressFontSize = Constants.FontSize.Places.Large.phoneSE
+            locationFontSize = Constants.FontSize.Places.Medium.phoneSE
+            searchFontSize = Constants.FontSize.Places.Large.phoneSE
+            placesFontSize = Constants.FontSize.Places.Small.phoneSE
         case Constants.ScreenHeight.phone:
-            addressFontSize = 15.0
-            locationFontSize = 14.0
-            searchFontSize = 15.0
-            placesFontSize = 13.0
+            addressFontSize = Constants.FontSize.Places.Large.phone
+            locationFontSize = Constants.FontSize.Places.Medium.phone
+            searchFontSize = Constants.FontSize.Places.Large.phone
+            placesFontSize = Constants.FontSize.Places.Small.phone
         case Constants.ScreenHeight.phonePlus:
-            addressFontSize = 16.0
-            locationFontSize = 15.0
-            searchFontSize = 16.0
-            placesFontSize = 14.0
+            addressFontSize = Constants.FontSize.Places.Large.phonePlus
+            locationFontSize = Constants.FontSize.Places.Medium.phonePlus
+            searchFontSize = Constants.FontSize.Places.Large.phonePlus
+            placesFontSize = Constants.FontSize.Places.Small.phonePlus
         default:
             break
         }
@@ -133,11 +174,12 @@ extension PlacesViewController {
     func setFontStyle() {
         
         // Set font style
+        address.font = UIFont(name: "Roboto-Regular", size: addressFontSize)
+        
         let locationText = NSMutableAttributedString(string: location.text!, attributes: [NSFontAttributeName: UIFont(name: "Roboto-Regular", size: locationFontSize)!])
         locationText.addAttribute(NSForegroundColorAttributeName, value: UIColor(red: 228.0/255, green: 227.0/255, blue: 225.0/255, alpha: 1.0), range: NSRange(location:0,length:9))
-        
         location.attributedText = locationText
-        address.font = UIFont(name: "Roboto-Regular", size: addressFontSize)
+        
         searchField.font = UIFont(name: "Roboto-Regular", size: searchFontSize)
     }
     
@@ -176,6 +218,28 @@ extension PlacesViewController: UITextFieldDelegate {
         // Dismiss keyboard
         textField.resignFirstResponder()
         return true
+    }
+}
+
+extension PlacesViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        
+        // Start tracking location if authorized by user
+        if status == .authorizedWhenInUse {
+            locationManager.startUpdatingLocation()
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        // Update user current location
+        if let location = locations.first {
+            latitude = location.coordinate.latitude
+            longitude = location.coordinate.longitude
+            
+            getGeoLocation()
+        }
     }
 }
 
