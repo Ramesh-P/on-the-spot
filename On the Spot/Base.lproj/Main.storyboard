@@ -101,26 +101,62 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ahb-EY-nAp" userLabel="Places View">
                                         <rect key="frame" x="0.0" y="172" width="375" height="431"/>
                                         <subviews>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3VN-KD-Ugg" userLabel="Places">
+                                            <collectionView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3VN-KD-Ugg" userLabel="Places">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="431"/>
                                                 <color key="backgroundColor" red="0.72941176470588232" green="0.72156862745098038" blue="0.71372549019607845" alpha="1" colorSpace="calibratedRGB"/>
-                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SnV-6b-hRM">
-                                                    <size key="itemSize" width="50" height="50"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="SnV-6b-hRM">
+                                                    <size key="itemSize" width="90" height="120"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fGA-Fh-J9U">
-                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <collectionViewCell clipsSubviews="YES" contentMode="center" reuseIdentifier="PlaceCell" id="fGA-Fh-J9U" customClass="Cell" customModule="On_the_Spot" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="90" height="120"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="90" height="120"/>
                                                             <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ir5-Cd-5S3" userLabel="Image Frame">
+                                                                    <rect key="frame" x="1" y="1" width="88" height="118"/>
+                                                                    <subviews>
+                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lH9-1W-PS8" userLabel="Place Icon">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="88" height="118"/>
+                                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                        </imageView>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" red="0.8666666666666667" green="0.86274509803921573" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="bottom" secondItem="lH9-1W-PS8" secondAttribute="bottom" id="Fzc-gj-S6f"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="lH9-1W-PS8" secondAttribute="trailing" id="bmt-Du-Hfc"/>
+                                                                        <constraint firstItem="lH9-1W-PS8" firstAttribute="leading" secondItem="ir5-Cd-5S3" secondAttribute="leading" id="h0T-rJ-p8c"/>
+                                                                        <constraint firstItem="lH9-1W-PS8" firstAttribute="top" secondItem="ir5-Cd-5S3" secondAttribute="top" id="rVT-AA-ARP"/>
+                                                                        <constraint firstItem="lH9-1W-PS8" firstAttribute="centerX" secondItem="ir5-Cd-5S3" secondAttribute="centerX" id="sdb-gJ-xBL"/>
+                                                                        <constraint firstItem="lH9-1W-PS8" firstAttribute="centerY" secondItem="ir5-Cd-5S3" secondAttribute="centerY" id="wff-oN-KIo"/>
+                                                                    </constraints>
+                                                                </view>
+                                                            </subviews>
                                                         </view>
-                                                        <color key="backgroundColor" red="0.8666666666666667" green="0.86274509803921573" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="backgroundColor" red="0.72941176470588232" green="0.72156862745098038" blue="0.71372549019607845" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstItem="ir5-Cd-5S3" firstAttribute="centerY" secondItem="fGA-Fh-J9U" secondAttribute="centerY" id="Bhn-Y1-g6P"/>
+                                                            <constraint firstItem="ir5-Cd-5S3" firstAttribute="centerX" secondItem="fGA-Fh-J9U" secondAttribute="centerX" id="M2m-rI-T8Q"/>
+                                                            <constraint firstItem="ir5-Cd-5S3" firstAttribute="leading" secondItem="fGA-Fh-J9U" secondAttribute="leading" constant="1" id="Sab-zL-Nnf"/>
+                                                            <constraint firstAttribute="bottom" secondItem="ir5-Cd-5S3" secondAttribute="bottom" constant="1" id="r0g-sj-oT8"/>
+                                                            <constraint firstItem="ir5-Cd-5S3" firstAttribute="top" secondItem="fGA-Fh-J9U" secondAttribute="top" constant="1" id="tYq-Z3-pGf"/>
+                                                            <constraint firstAttribute="trailing" secondItem="ir5-Cd-5S3" secondAttribute="trailing" constant="1" id="wpi-vX-ffw"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <outlet property="placeIcon" destination="lH9-1W-PS8" id="1vS-Gp-dSZ"/>
+                                                            <outlet property="placesImageFrame" destination="ir5-Cd-5S3" id="bMw-Cx-aD2"/>
+                                                        </connections>
                                                     </collectionViewCell>
                                                 </cells>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="S0l-za-A8j"/>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="FnG-L7-DaR"/>
+                                                </connections>
                                             </collectionView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.72941176470588232" green="0.72156862745098038" blue="0.71372549019607845" alpha="1" colorSpace="calibratedRGB"/>
@@ -185,7 +221,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BCB-lX-fg9" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="sg9-T6-1uA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="sg9-T6-1uA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.8666666666666667" green="0.86274509803921573" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>

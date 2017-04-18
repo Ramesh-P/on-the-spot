@@ -15,6 +15,7 @@
 		CF03C4561E972737001149DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF03C4541E972737001149DE /* LaunchScreen.storyboard */; };
 		CF261B701EA0424B00AB5DB5 /* GoogleAPIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF261B6F1EA0424B00AB5DB5 /* GoogleAPIConstants.swift */; };
 		CF261B721EA0425F00AB5DB5 /* GoogleAPIMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF261B711EA0425F00AB5DB5 /* GoogleAPIMethods.swift */; };
+		CF261B741EA4452D00AB5DB5 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF261B731EA4452D00AB5DB5 /* Cell.swift */; };
 		CF68A92B1E9D264A004A2B66 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF68A9251E9D264A004A2B66 /* Roboto-Black.ttf */; };
 		CF68A92C1E9D264A004A2B66 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF68A9261E9D264A004A2B66 /* Roboto-Bold.ttf */; };
 		CF68A92D1E9D264A004A2B66 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF68A9271E9D264A004A2B66 /* Roboto-Light.ttf */; };
@@ -35,6 +36,7 @@
 		CF03C4571E972737001149DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF261B6F1EA0424B00AB5DB5 /* GoogleAPIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleAPIConstants.swift; sourceTree = "<group>"; };
 		CF261B711EA0425F00AB5DB5 /* GoogleAPIMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleAPIMethods.swift; sourceTree = "<group>"; };
+		CF261B731EA4452D00AB5DB5 /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		CF68A9251E9D264A004A2B66 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		CF68A9261E9D264A004A2B66 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		CF68A9271E9D264A004A2B66 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			children = (
 				CF03C4571E972737001149DE /* Info.plist */,
 				CF03C44B1E972737001149DE /* AppDelegate.swift */,
+				CF261B731EA4452D00AB5DB5 /* Cell.swift */,
 				CFAF7ECB1E9E942D000A3FCF /* Constants.swift */,
 				CF261B6F1EA0424B00AB5DB5 /* GoogleAPIConstants.swift */,
 				CF261B711EA0425F00AB5DB5 /* GoogleAPIMethods.swift */,
@@ -250,6 +253,7 @@
 				CF261B721EA0425F00AB5DB5 /* GoogleAPIMethods.swift in Sources */,
 				CFAF7ECC1E9E942D000A3FCF /* Constants.swift in Sources */,
 				CF261B701EA0424B00AB5DB5 /* GoogleAPIConstants.swift in Sources */,
+				CF261B741EA4452D00AB5DB5 /* Cell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
