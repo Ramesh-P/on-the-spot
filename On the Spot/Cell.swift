@@ -14,8 +14,6 @@ class Cell: UICollectionViewCell {
     
     // MARK: Outlets
     @IBOutlet weak var placesImageFrame: UIView!
-    @IBOutlet weak var placesTextFrame: UIView!
     @IBOutlet weak var placeIcon: UIImageView!
-    @IBOutlet weak var placeType: UILabel!
 }
 
