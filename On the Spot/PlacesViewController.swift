@@ -58,6 +58,7 @@ class PlacesViewController: UIViewController {
         setFontStyle()
         setPlaceholderText()
         setCellSize()
+        places.reloadData()
         
         // Get authorization to track user location
         locationManager.requestWhenInUseAuthorization()
@@ -97,6 +98,9 @@ extension PlacesViewController {
         
         // Reposition textfield on keyboard display
         view.frame.origin.y = -(locationView.frame.size.height) + (UIApplication.shared.statusBarFrame.height) + (navigationController?.navigationBar.frame.height)!
+        
+        // Reset selected places
+        places.reloadData()
     }
     
     func keyboardWillHide(notification: NSNotification) {
@@ -262,12 +266,36 @@ extension PlacesViewController: UICollectionViewDataSource, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlaceCell", for: indexPath) as! Cell
-        let image = "Place Icon-" + String(indexPath.row)
+        var image: String = String()
         
-        // Display places
+        // Maintain selected places
+        if (cell.isSelected) {
+            image = "Place Icon-" + String(indexPath.row) + " Selected"
+        } else {
+            image = "Place Icon-" + String(indexPath.row)
+        }
+        
         cell.placeIcon.image = UIImage(named: image)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        // Display selected place
+        let cell = collectionView.cellForItem(at: indexPath) as! Cell
+        let image = "Place Icon-" + String(indexPath.row) + " Selected"
+        cell.placeIcon.image = UIImage(named: image)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+
+        // Reset unselected place
+        if let cell = collectionView.cellForItem(at: indexPath) as? Cell {
+            let image = "Place Icon-" + String(indexPath.row)
+            cell.placeIcon.image = UIImage(named: image)
+            
+        }
     }
 }
 
