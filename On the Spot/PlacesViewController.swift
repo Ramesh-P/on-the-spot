@@ -21,7 +21,7 @@ class PlacesViewController: UIViewController {
     let locationManager: CLLocationManager = CLLocationManager()
     var latitude: Double = Double()
     var longitude: Double = Double()
-    var searchController = UISearchController()
+    var searchController: UISearchController = UISearchController()
     
     // MARK: Outlets
     @IBOutlet weak var locationView: UIView!
@@ -48,14 +48,12 @@ class PlacesViewController: UIViewController {
         
         super.viewWillAppear(animated)
         
-        // Subscribe to keyboard notifications
-        subscribeToKeybcardNotifications()
-        
         // Layout
         getFontSize()
         setFontStyle()
         setPlaceholderText()
         setPlaceholderImage()
+        setCancelButtonAppearance()
         setCellSize()
         places.reloadData()
         
@@ -63,58 +61,15 @@ class PlacesViewController: UIViewController {
         locationManager.requestWhenInUseAuthorization()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        
-        super.viewWillDisappear(animated)
-        
-        // Unsubscribe to keyboard notifications
-        unsubscribeFromKeyboardNotifications()
-    }
-
     override func didReceiveMemoryWarning() {
         
         super.didReceiveMemoryWarning()
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        // Dismiss keyboard
-        view.endEditing(true)
     }
 }
 
 extension PlacesViewController {
     
     // MARK: Class Functions
-    func subscribeToKeybcardNotifications() {
-        
-        // Add keyboard notification observers
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-    }
-    
-    func keyboardWillShow(notification: NSNotification) {
-        
-        // Reposition textfield on keyboard display
-        view.frame.origin.y = -(locationView.frame.size.height) + (UIApplication.shared.statusBarFrame.height) + (navigationController?.navigationBar.frame.height)!
-        
-        // Reset selected places
-        places.reloadData()
-    }
-    
-    func keyboardWillHide(notification: NSNotification) {
-        
-        // Reposition textfield on keyboard dismiss
-        view.frame.origin.y = (UIApplication.shared.statusBarFrame.height) + (navigationController?.navigationBar.frame.height)!
-    }
-    
-    func unsubscribeFromKeyboardNotifications() {
-        
-        // Remove keyboard notification observers
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-    }
-    
     func getGeoLocation() {
         
         let location = CLLocation(latitude: latitude, longitude: longitude)
@@ -187,13 +142,23 @@ extension PlacesViewController {
         let attributes: [String : AnyObject] = [NSForegroundColorAttributeName: UIColor(red: 228.0/255, green: 227.0/255, blue: 225.0/255, alpha: 1.0), NSFontAttributeName: UIFont(name: "Roboto-Regular", size: searchFontSize)!]
         let placeholderText: NSAttributedString = NSAttributedString(string: "Search", attributes: attributes)
         
-        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).attributedPlaceholder = placeholderText
+        let searchField = UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self])
+        searchField.attributedPlaceholder = placeholderText
     }
     
     func setPlaceholderImage() {
         
         // Set placeholder image
-        UISearchBar.appearance().setImage(UIImage(named: "Search"), for: UISearchBarIcon.search, state: UIControlState.normal)
+        let searchField = UISearchBar.appearance()
+        searchField.setImage(UIImage(named: "Search"), for: UISearchBarIcon.search, state: UIControlState.normal)
+    }
+    
+    func setCancelButtonAppearance() {
+        
+        // Set cancel button appearance
+        let cancelButton = UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self])
+        cancelButton.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Roboto-Regular", size: searchFontSize)!], for: .normal)
+        cancelButton.tintColor = UIColor(red: 228.0/255, green: 227.0/255, blue: 225.0/255, alpha: 1.0)
     }
     
     func setHeaderSize() -> CGSize {
@@ -231,18 +196,54 @@ extension PlacesViewController {
     }
 }
 
-
-
-
-
 // MARK: PlacesViewController: UISearchBarDelegate
 extension PlacesViewController: UISearchBarDelegate {
     
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        
+        // Reposition search bar on keyboard display
+        UIView.animate(withDuration: 0.275, animations: {
+            self.view.frame.origin.y = -(self.locationView.frame.size.height) + (UIApplication.shared.statusBarFrame.height) + (self.navigationController?.navigationBar.frame.height)!
+        })
+        
+        return true
+    }
     
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
+        // Show keyboard and cancel button
+        searchBar.becomeFirstResponder()
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
     
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        
+        // Reposition search bar on keyboard dismiss
+        UIView.animate(withDuration: 0.275, animations: {
+            self.view.frame.origin.y = (UIApplication.shared.statusBarFrame.height) + (self.navigationController?.navigationBar.frame.height)!
+        })
+        
+        return true
+    }
     
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        
+        // Hide cance button and show placeholder text
+        searchBar.text = ""
+        searchBar.setShowsCancelButton(false, animated: true)
+    }
     
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+        // Dismiss keyboard
+        searchBar.resignFirstResponder()
+    }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        // Dismiss keyboard
+        searchBar.resignFirstResponder()
+    }
 }
 
 
@@ -306,6 +307,12 @@ extension PlacesViewController: CLLocationManagerDelegate {
 
 // MARK: PlacesViewController: UICollectionViewDataSource, UICollectionViewDelegate
 extension PlacesViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        
+        // Set total sections
+        return 1
+    }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
