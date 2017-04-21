@@ -13,6 +13,7 @@
 		CF03C4511E972737001149DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF03C44F1E972737001149DE /* Main.storyboard */; };
 		CF03C4531E972737001149DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF03C4521E972737001149DE /* Assets.xcassets */; };
 		CF03C4561E972737001149DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF03C4541E972737001149DE /* LaunchScreen.storyboard */; };
+		CF2037461EA91AB7004847B3 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2037451EA91AB7004847B3 /* Search.swift */; };
 		CF261B701EA0424B00AB5DB5 /* GoogleAPIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF261B6F1EA0424B00AB5DB5 /* GoogleAPIConstants.swift */; };
 		CF261B721EA0425F00AB5DB5 /* GoogleAPIMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF261B711EA0425F00AB5DB5 /* GoogleAPIMethods.swift */; };
 		CF261B741EA4452D00AB5DB5 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF261B731EA4452D00AB5DB5 /* Cell.swift */; };
@@ -34,6 +35,7 @@
 		CF03C4521E972737001149DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF03C4551E972737001149DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF03C4571E972737001149DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF2037451EA91AB7004847B3 /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		CF261B6F1EA0424B00AB5DB5 /* GoogleAPIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleAPIConstants.swift; sourceTree = "<group>"; };
 		CF261B711EA0425F00AB5DB5 /* GoogleAPIMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleAPIMethods.swift; sourceTree = "<group>"; };
 		CF261B731EA4452D00AB5DB5 /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				CF261B6F1EA0424B00AB5DB5 /* GoogleAPIConstants.swift */,
 				CF261B711EA0425F00AB5DB5 /* GoogleAPIMethods.swift */,
 				CF03C44D1E972737001149DE /* PlacesViewController.swift */,
+				CF2037451EA91AB7004847B3 /* Search.swift */,
 				CF68A9251E9D264A004A2B66 /* Roboto-Black.ttf */,
 				CF68A9261E9D264A004A2B66 /* Roboto-Bold.ttf */,
 				CF68A9271E9D264A004A2B66 /* Roboto-Light.ttf */,
@@ -254,6 +257,7 @@
 				CFAF7ECC1E9E942D000A3FCF /* Constants.swift in Sources */,
 				CF261B701EA0424B00AB5DB5 /* GoogleAPIConstants.swift in Sources */,
 				CF261B741EA4452D00AB5DB5 /* Cell.swift in Sources */,
+				CF2037461EA91AB7004847B3 /* Search.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

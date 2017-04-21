@@ -41,5 +41,12 @@ struct Constants {
             }
         }
     }
+    
+    // MARK: Screen Height
+    struct HeaderHeight {
+        static let phoneSE: Double = 38.0
+        static let phone: Double = 44.0
+        static let phonePlus: Double = 48.6666666666667
+    }
 }
 

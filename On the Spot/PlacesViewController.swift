@@ -17,18 +17,17 @@ class PlacesViewController: UIViewController {
     var addressFontSize: CGFloat = CGFloat()
     var locationFontSize: CGFloat = CGFloat()
     var searchFontSize: CGFloat = CGFloat()
-    var placeholderText: NSAttributedString = NSAttributedString()
+    var formattedAddress: String = String()
     let locationManager: CLLocationManager = CLLocationManager()
     var latitude: Double = Double()
     var longitude: Double = Double()
-    var formattedAddress: String = String()
+    var searchController = UISearchController()
     
     // MARK: Outlets
+    @IBOutlet weak var locationView: UIView!
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var location: UILabel!
-    @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var places: UICollectionView!
-    @IBOutlet weak var locationView: UIView!
     
     // MARK: Actions
     @IBAction func menu(_ sender: UIBarButtonItem) {
@@ -42,7 +41,6 @@ class PlacesViewController: UIViewController {
         super.viewDidLoad()
         
         // Initialize
-        searchField.delegate = self
         locationManager.delegate = self
     }
     
@@ -57,6 +55,7 @@ class PlacesViewController: UIViewController {
         getFontSize()
         setFontStyle()
         setPlaceholderText()
+        setPlaceholderImage()
         setCellSize()
         places.reloadData()
         
@@ -180,18 +179,44 @@ extension PlacesViewController {
         let locationText = NSMutableAttributedString(string: location.text!, attributes: [NSFontAttributeName: UIFont(name: "Roboto-Regular", size: locationFontSize)!])
         locationText.addAttribute(NSForegroundColorAttributeName, value: UIColor(red: 228.0/255, green: 227.0/255, blue: 225.0/255, alpha: 1.0), range: NSRange(location:0,length:9))
         location.attributedText = locationText
-        
-        searchField.font = UIFont(name: "Roboto-Regular", size: searchFontSize)
     }
     
     func setPlaceholderText() {
         
         // Set placeholder text
-        let textAttachment = NSTextAttachment(data: nil, ofType: nil)
-        textAttachment.image = UIImage(named: "Search")
-        placeholderText = NSAttributedString(attachment: textAttachment)
+        let attributes: [String : AnyObject] = [NSForegroundColorAttributeName: UIColor(red: 228.0/255, green: 227.0/255, blue: 225.0/255, alpha: 1.0), NSFontAttributeName: UIFont(name: "Roboto-Regular", size: searchFontSize)!]
+        let placeholderText: NSAttributedString = NSAttributedString(string: "Search", attributes: attributes)
         
-        searchField.attributedPlaceholder = placeholderText
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).attributedPlaceholder = placeholderText
+    }
+    
+    func setPlaceholderImage() {
+        
+        // Set placeholder image
+        UISearchBar.appearance().setImage(UIImage(named: "Search"), for: UISearchBarIcon.search, state: UIControlState.normal)
+    }
+    
+    func setHeaderSize() -> CGSize {
+        
+        // Get screen height
+        let screenHeight = UIScreen.main.bounds.size.height
+        
+        // Set header size
+        let width: Double = Double(places.frame.size.width)
+        var height: Double = Double()
+        
+        switch screenHeight {
+        case Constants.ScreenHeight.phoneSE:
+            height = Constants.HeaderHeight.phoneSE
+        case Constants.ScreenHeight.phone:
+            height = Constants.HeaderHeight.phone
+        case Constants.ScreenHeight.phonePlus:
+            height = Constants.HeaderHeight.phonePlus
+        default:
+            break
+        }
+        
+        return CGSize(width: width, height: height)
     }
     
     func setCellSize() {
@@ -206,7 +231,26 @@ extension PlacesViewController {
     }
 }
 
+
+
+
+
+// MARK: PlacesViewController: UISearchBarDelegate
+extension PlacesViewController: UISearchBarDelegate {
+    
+    
+    
+    
+    
+    
+}
+
+
+
+
+
 // MARK: PlacesViewController: UITextFieldDelegate
+/*
 extension PlacesViewController: UITextFieldDelegate {
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -232,6 +276,11 @@ extension PlacesViewController: UITextFieldDelegate {
         return true
     }
 }
+ */
+
+
+
+
 
 extension PlacesViewController: CLLocationManagerDelegate {
     
@@ -258,8 +307,26 @@ extension PlacesViewController: CLLocationManagerDelegate {
 // MARK: PlacesViewController: UICollectionViewDataSource, UICollectionViewDelegate
 extension PlacesViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        // Set header with search bar
+        if (kind == UICollectionElementKindSectionHeader) {
+            let header: UICollectionReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "PlaceHeader", for: indexPath)
+            
+            return header
+        }
+        
+        return UICollectionReusableView()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        
+        return setHeaderSize()
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
+        // Set total cells
         return 90
     }
     
@@ -294,7 +361,6 @@ extension PlacesViewController: UICollectionViewDataSource, UICollectionViewDele
         if let cell = collectionView.cellForItem(at: indexPath) as? Cell {
             let image = "Place Icon-" + String(indexPath.row)
             cell.placeIcon.image = UIImage(named: image)
-            
         }
     }
 }
