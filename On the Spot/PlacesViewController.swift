@@ -22,12 +22,16 @@ class PlacesViewController: UIViewController {
     var latitude: Double = Double()
     var longitude: Double = Double()
     var searchController: UISearchController = UISearchController()
+    var isFiltered: Bool = Bool()
+    var filteredPlaces: [String] = [String]()
+    var refreshControl: UIRefreshControl = UIRefreshControl()
     
     // MARK: Outlets
     @IBOutlet weak var locationView: UIView!
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var location: UILabel!
     @IBOutlet weak var places: UICollectionView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     // MARK: Actions
     @IBAction func menu(_ sender: UIBarButtonItem) {
@@ -42,6 +46,8 @@ class PlacesViewController: UIViewController {
         
         // Initialize
         locationManager.delegate = self
+        searchBar.delegate = self
+        isFiltered = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -161,29 +167,6 @@ extension PlacesViewController {
         cancelButton.tintColor = UIColor(red: 228.0/255, green: 227.0/255, blue: 225.0/255, alpha: 1.0)
     }
     
-    func setHeaderSize() -> CGSize {
-        
-        // Get screen height
-        let screenHeight = UIScreen.main.bounds.size.height
-        
-        // Set header size
-        let width: Double = Double(places.frame.size.width)
-        var height: Double = Double()
-        
-        switch screenHeight {
-        case Constants.ScreenHeight.phoneSE:
-            height = Constants.HeaderHeight.phoneSE
-        case Constants.ScreenHeight.phone:
-            height = Constants.HeaderHeight.phone
-        case Constants.ScreenHeight.phonePlus:
-            height = Constants.HeaderHeight.phonePlus
-        default:
-            break
-        }
-        
-        return CGSize(width: width, height: height)
-    }
-    
     func setCellSize() {
         
         // Layout cells for places
@@ -211,9 +194,13 @@ extension PlacesViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         
-        // Show keyboard and cancel button
+        // Display keyboard and show cancel button
         searchBar.becomeFirstResponder()
         searchBar.setShowsCancelButton(true, animated: true)
+        
+        // Display places
+        isFiltered = false
+        places.reloadData()
     }
     
     func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
@@ -228,60 +215,48 @@ extension PlacesViewController: UISearchBarDelegate {
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         
-        // Hide cance button and show placeholder text
-        searchBar.text = ""
+        // Hide cance button
         searchBar.setShowsCancelButton(false, animated: true)
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         
         // Dismiss keyboard
+        searchBar.text = ""
         searchBar.resignFirstResponder()
+        
+        // Display places
+        isFiltered = false
+        places.reloadData()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
         // Dismiss keyboard
+        searchBar.text = searchBar.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         searchBar.resignFirstResponder()
-    }
-}
-
-
-
-
-
-// MARK: PlacesViewController: UITextFieldDelegate
-/*
-extension PlacesViewController: UITextFieldDelegate {
-
-    func textFieldDidBeginEditing(_ textField: UITextField) {
         
-        // Clear placeholder text
-        searchField.placeholder = nil
+        // Display places
+        isFiltered = true
+        places.reloadData()
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        // Reset placeholder text
-        searchField.text = searchField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        // Search and filter places
+        let searchResult = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        if (searchField.text?.isEmpty)! {
-            searchField.attributedPlaceholder = placeholderText
+        if (searchResult.isEmpty) {
+            isFiltered = false
+        } else {
+            isFiltered = true
+            filteredPlaces = Google.placeTypes.filter { $0.localizedCaseInsensitiveContains(searchResult) }
         }
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        // Dismiss keyboard
-        textField.resignFirstResponder()
-        return true
+        // Display places
+        places.reloadData()
     }
 }
- */
-
-
-
-
 
 extension PlacesViewController: CLLocationManagerDelegate {
     
@@ -308,47 +283,34 @@ extension PlacesViewController: CLLocationManagerDelegate {
 // MARK: PlacesViewController: UICollectionViewDataSource, UICollectionViewDelegate
 extension PlacesViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        
-        // Set total sections
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        
-        // Set header with search bar
-        if (kind == UICollectionElementKindSectionHeader) {
-            let header: UICollectionReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "PlaceHeader", for: indexPath)
-            
-            return header
-        }
-        
-        return UICollectionReusableView()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        
-        return setHeaderSize()
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         // Set total cells
-        return 90
+        var count: Int = Int()
+        
+        if (isFiltered) {
+            count = filteredPlaces.count
+        } else {
+            count = Google.placeTypes.count
+        }
+        
+        return count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlaceCell", for: indexPath) as! Cell
+        var id: String = String()
         var image: String = String()
         
-        // Maintain selected places
-        if (cell.isSelected) {
-            image = "Place Icon-" + String(indexPath.row) + " Selected"
+        // Display places
+        if (isFiltered) {
+            id = String(filteredPlaces[indexPath.row].components(separatedBy: ":").first!)
         } else {
-            image = "Place Icon-" + String(indexPath.row)
+            id = String(indexPath.row)
         }
         
+        image = "Place Icon-" + id
         cell.placeIcon.image = UIImage(named: image)
         
         return cell
@@ -356,9 +318,18 @@ extension PlacesViewController: UICollectionViewDataSource, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        // Display selected place
         let cell = collectionView.cellForItem(at: indexPath) as! Cell
-        let image = "Place Icon-" + String(indexPath.row) + " Selected"
+        var id: String = String()
+        var image: String = String()
+        
+        // Display selected place
+        if (isFiltered) {
+            id = String(filteredPlaces[indexPath.row].components(separatedBy: ":").first!)
+        } else {
+            id = String(indexPath.row)
+        }
+        
+        image = "Place Icon-" + id + " Selected"
         cell.placeIcon.image = UIImage(named: image)
     }
     
@@ -366,7 +337,17 @@ extension PlacesViewController: UICollectionViewDataSource, UICollectionViewDele
 
         // Reset unselected place
         if let cell = collectionView.cellForItem(at: indexPath) as? Cell {
-            let image = "Place Icon-" + String(indexPath.row)
+            var id: String = String()
+            var image: String = String()
+            
+            // Display selected place
+            if (isFiltered) {
+                id = String(filteredPlaces[indexPath.row].components(separatedBy: ":").first!)
+            } else {
+                id = String(indexPath.row)
+            }
+            
+            image = "Place Icon-" + id
             cell.placeIcon.image = UIImage(named: image)
         }
     }
