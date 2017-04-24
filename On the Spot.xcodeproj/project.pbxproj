@@ -23,6 +23,9 @@
 		CF68A92F1E9D264A004A2B66 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF68A9291E9D264A004A2B66 /* Roboto-Regular.ttf */; };
 		CF68A9301E9D264A004A2B66 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF68A92A1E9D264A004A2B66 /* Roboto-Thin.ttf */; };
 		CFAF7ECC1E9E942D000A3FCF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAF7ECB1E9E942D000A3FCF /* Constants.swift */; };
+		CFF942CD1EAD7051003D9B7E /* PlaceTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF942CC1EAD7051003D9B7E /* PlaceTabBarController.swift */; };
+		CFF942CF1EAD7CDB003D9B7E /* PlaceMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF942CE1EAD7CDB003D9B7E /* PlaceMapViewController.swift */; };
+		CFF942D11EAD7CF3003D9B7E /* PlaceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF942D01EAD7CF3003D9B7E /* PlaceTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		CF68A9291E9D264A004A2B66 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		CF68A92A1E9D264A004A2B66 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		CFAF7ECB1E9E942D000A3FCF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CFF942CC1EAD7051003D9B7E /* PlaceTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTabBarController.swift; sourceTree = "<group>"; };
+		CFF942CE1EAD7CDB003D9B7E /* PlaceMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceMapViewController.swift; sourceTree = "<group>"; };
+		CFF942D01EAD7CF3003D9B7E /* PlaceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTableViewController.swift; sourceTree = "<group>"; };
 		E839CA293AAA097B3890295E /* Pods-On the Spot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-On the Spot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-On the Spot/Pods-On the Spot.debug.xcconfig"; sourceTree = "<group>"; };
 		ECC395D61C3E235B26B4241B /* Pods-On the Spot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-On the Spot.release.xcconfig"; path = "Pods/Target Support Files/Pods-On the Spot/Pods-On the Spot.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,7 +93,10 @@
 				CFAF7ECB1E9E942D000A3FCF /* Constants.swift */,
 				CF261B6F1EA0424B00AB5DB5 /* GoogleAPIConstants.swift */,
 				CF261B711EA0425F00AB5DB5 /* GoogleAPIMethods.swift */,
+				CFF942CE1EAD7CDB003D9B7E /* PlaceMapViewController.swift */,
 				CF03C44D1E972737001149DE /* PlacesViewController.swift */,
+				CFF942CC1EAD7051003D9B7E /* PlaceTabBarController.swift */,
+				CFF942D01EAD7CF3003D9B7E /* PlaceTableViewController.swift */,
 				CF68A9251E9D264A004A2B66 /* Roboto-Black.ttf */,
 				CF68A9261E9D264A004A2B66 /* Roboto-Bold.ttf */,
 				CF68A9271E9D264A004A2B66 /* Roboto-Light.ttf */,
@@ -249,11 +258,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF03C44E1E972737001149DE /* PlacesViewController.swift in Sources */,
+				CFF942CF1EAD7CDB003D9B7E /* PlaceMapViewController.swift in Sources */,
 				CF03C44C1E972737001149DE /* AppDelegate.swift in Sources */,
 				CF261B721EA0425F00AB5DB5 /* GoogleAPIMethods.swift in Sources */,
 				CFAF7ECC1E9E942D000A3FCF /* Constants.swift in Sources */,
+				CFF942D11EAD7CF3003D9B7E /* PlaceTableViewController.swift in Sources */,
 				CF261B701EA0424B00AB5DB5 /* GoogleAPIConstants.swift in Sources */,
 				CF261B741EA4452D00AB5DB5 /* Cell.swift in Sources */,
+				CFF942CD1EAD7051003D9B7E /* PlaceTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

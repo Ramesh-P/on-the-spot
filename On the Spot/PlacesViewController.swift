@@ -24,7 +24,7 @@ class PlacesViewController: UIViewController {
     var searchController: UISearchController = UISearchController()
     var isFiltered: Bool = Bool()
     var filteredPlaces: [String] = [String]()
-    var refreshControl: UIRefreshControl = UIRefreshControl()
+    //var refreshControl: UIRefreshControl = UIRefreshControl()
     
     // MARK: Outlets
     @IBOutlet weak var locationView: UIView!
@@ -37,6 +37,17 @@ class PlacesViewController: UIViewController {
     @IBAction func menu(_ sender: UIBarButtonItem) {
         
         // TO DO: Display menu options
+    }
+    
+    @IBAction func places(_ sender: UIBarButtonItem) {
+        
+        // Dismiss keyboard
+        searchBar.resignFirstResponder()
+        
+        // Show saved places
+        let controller = self.storyboard!.instantiateViewController(withIdentifier: "PlaceTabBarController") as! PlaceTabBarController
+        PlaceTabBarController.placeType = ""
+        navigationController?.pushViewController(controller, animated: true)
     }
 
     // MARK: Overrides
@@ -53,6 +64,9 @@ class PlacesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
+        
+        // Initialize
+        searchBarCancelButtonClicked(searchBar)
         
         // Layout
         getFontSize()
