@@ -45,9 +45,8 @@ class PlacesViewController: UIViewController {
         searchBar.resignFirstResponder()
         
         // Show saved places
-        let controller = self.storyboard!.instantiateViewController(withIdentifier: "PlaceTabBarController") as! PlaceTabBarController
-        PlaceTabBarController.placeType = ""
-        navigationController?.pushViewController(controller, animated: true)
+        let placeType = ""
+        self.performSegue(withIdentifier: "toPlaceTabBarController", sender: placeType)
     }
 
     // MARK: Overrides
@@ -79,14 +78,26 @@ class PlacesViewController: UIViewController {
         
         // Get authorization to track user location
         locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
     }
     
     override func didReceiveMemoryWarning() {
         
         super.didReceiveMemoryWarning()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // Show places
+        if (segue.identifier == "toPlaceTabBarController") {
+            let controller = segue.destination as! PlaceTabBarController
+            let placeType = sender as! String
+            controller.placeType = placeType
+        }
+    }
 }
 
+// MARK: extension PlacesViewController
 extension PlacesViewController {
     
     // MARK: Class Functions
@@ -191,6 +202,14 @@ extension PlacesViewController {
         let flowLayout = places.collectionViewLayout as? UICollectionViewFlowLayout
         flowLayout?.itemSize = CGSize(width: width, height: height)
     }
+    
+    func displayError(_ message: String?) {
+        
+        // Display Error
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 // MARK: PlacesViewController: UISearchBarDelegate
@@ -272,6 +291,7 @@ extension PlacesViewController: UISearchBarDelegate {
     }
 }
 
+// MARK: PlacesViewController: CLLocationManagerDelegate
 extension PlacesViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -345,6 +365,41 @@ extension PlacesViewController: UICollectionViewDataSource, UICollectionViewDele
         
         image = "Place Icon-" + id + " Selected"
         cell.placeIcon.image = UIImage(named: image)
+        
+        // Show selected places
+        var placeType: String = String()
+        
+        if (isFiltered) {
+            placeType = String(filteredPlaces[indexPath.row].components(separatedBy: ":").last!)
+        } else {
+            placeType = String(Google.placeTypes[indexPath.row].components(separatedBy: ":").last!)
+        }
+        
+        let type = (placeType.replacingOccurrences(of: " ", with: "_")).lowercased()
+        let location = String(latitude) + "," + String(longitude)
+        
+        GoogleAPIMethods.sharedInstance().fetchNearbyPlaces(of: type, for: location) { (success, error) in
+            
+            performUIUpdatesOnMain {
+                
+                // Dismiss keyboard & reset
+                self.searchBar.resignFirstResponder()
+                self.searchBarCancelButtonClicked(self.searchBar)
+                
+                // Display places or error
+                if success {
+                    self.performSegue(withIdentifier: "toPlaceTabBarController", sender: placeType)
+                } else {
+                    var errorMessage: String = error!
+                    
+                    if (errorMessage == Google.ResponseValues.zeroResults) {
+                        errorMessage = "There is no " + (placeType).lowercased() + " nearby. Please increase the radius and search again"
+                    }
+                    
+                    self.displayError(errorMessage)
+                }
+            }
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {

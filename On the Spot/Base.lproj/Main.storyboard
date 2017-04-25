@@ -221,7 +221,7 @@
                         <outlet property="locationView" destination="xgl-8Y-5Ff" id="CdZ-bi-4zo"/>
                         <outlet property="places" destination="3VN-KD-Ugg" id="ggg-yD-38y"/>
                         <outlet property="searchBar" destination="0BY-gG-bHl" id="AdK-LC-w8r"/>
-                        <segue destination="Whj-iX-N3Q" kind="show" id="G89-KP-Ld5"/>
+                        <segue destination="Whj-iX-N3Q" kind="show" identifier="toPlaceTabBarController" id="G89-KP-Ld5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -297,7 +297,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BCB-lX-fg9" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="sg9-T6-1uA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="sg9-T6-1uA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.8666666666666667" green="0.86274509803921573" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>

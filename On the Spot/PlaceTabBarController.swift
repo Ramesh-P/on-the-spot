@@ -13,7 +13,7 @@ import UIKit
 class PlaceTabBarController: UITabBarController {
     
     // MARK: Properties
-    static var placeType: String = String()
+    var placeType: String = String()
     static var deleteButton: UIBarButtonItem = UIBarButtonItem()
     
     // MARK: Outlets
@@ -38,7 +38,7 @@ class PlaceTabBarController: UITabBarController {
         super.viewWillAppear(animated)
         
         // Set default startup tab
-        if (PlaceTabBarController.placeType.isEmpty) {
+        if (placeType.isEmpty) {
             self.selectedIndex = 1
         } else {
             self.selectedIndex = 0
