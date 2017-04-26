@@ -48,6 +48,10 @@ class PlacesViewController: UIViewController {
         let placeType = ""
         self.performSegue(withIdentifier: "toPlaceTabBarController", sender: placeType)
     }
+    
+    @IBAction func unwindToPlacesViewController(segue: UIStoryboardSegue) {
+        
+    }
 
     // MARK: Overrides
     override func viewDidLoad() {

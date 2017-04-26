@@ -23,7 +23,7 @@ class PlaceMapViewController: UIViewController {
         super.viewWillAppear(animated)
         
         // Hide delete button
-        PlaceTabBarController.deleteButton.image = nil
+        PlaceTabBarController.deleteButton.image = UIImage(named: "Blank")
         PlaceTabBarController.deleteButton.isEnabled = false
     }
 

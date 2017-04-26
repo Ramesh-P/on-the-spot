@@ -40,8 +40,13 @@ class PlaceTabBarController: UITabBarController {
         // Set default startup tab
         if (placeType.isEmpty) {
             self.selectedIndex = 1
+            
+            
         } else {
             self.selectedIndex = 0
+            
+            
+            
         }
     }
 
