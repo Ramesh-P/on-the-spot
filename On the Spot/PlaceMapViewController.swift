@@ -8,9 +8,16 @@
 
 import Foundation
 import UIKit
+import GoogleMaps
 
 // MARK: PlaceMapViewController
 class PlaceMapViewController: UIViewController {
+    
+    // MARK: Properties
+    var locationMarker: GMSMarker!
+    
+    // MARK: Outlets
+    @IBOutlet var mapView: GMSMapView!
     
     // MARK: Overrides
     override func viewDidLoad() {

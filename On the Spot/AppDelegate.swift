@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Hide navigation bar border
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        
+        // Hide tab bar border
+        UITabBar.appearance().clipsToBounds = true
+        
+        // Enable Google Mobile Service (GMS)
+        GMSServices.provideAPIKey(Google.gmsKey)
+        //GMSServices.provideAPIKey(Google.ParameterValues.apiKey)
         
         return true
     }

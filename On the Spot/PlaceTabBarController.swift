@@ -31,22 +31,26 @@ class PlaceTabBarController: UITabBarController {
         
         // Initialize
         PlaceTabBarController.deleteButton = delete
+        
+        // Center align tab bar icons
+        let tabBarItems = tabBar.items! as [UITabBarItem]
+        
+        for tabBarItem in tabBarItems {
+            tabBarItem.imageInsets = UIEdgeInsetsMake(6.0, 0.0, -6.0, 0.0)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
         
-        // Set default startup tab
+        // Disable map view when place type value is empty
+        let tabBarItems = tabBar.items! as [UITabBarItem]
+        
         if (placeType.isEmpty) {
+            let tabBarItem = tabBarItems[0] as UITabBarItem
+            tabBarItem.isEnabled = false
             self.selectedIndex = 1
-            
-            
-        } else {
-            self.selectedIndex = 0
-            
-            
-            
         }
     }
 

@@ -228,7 +228,7 @@
             </objects>
             <point key="canvasLocation" x="454" y="-554"/>
         </scene>
-        <!--Item 2-->
+        <!--Place Table View Controller-->
         <scene sceneID="x4F-cQ-O6Q">
             <objects>
                 <viewController id="185-EZ-49J" customClass="PlaceTableViewController" customModule="On_the_Spot" customModuleProvider="target" sceneMemberID="viewController">
@@ -237,17 +237,58 @@
                         <viewControllerLayoutGuide type="bottom" id="BJN-F4-vg7"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="L9t-iI-OZH">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1g-yv-UuL" userLabel="Blank">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <color key="backgroundColor" red="0.20784313725490194" green="0.21568627450980393" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Y1g-yv-UuL" secondAttribute="height" multiplier="375:44" id="EAm-4B-ooX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.8666666666666667" green="0.86274509803921573" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="44" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DlH-gR-drc" userLabel="Places List">
+                                <rect key="frame" x="0.0" y="44" width="375" height="510"/>
+                                <color key="backgroundColor" red="0.8666666666666667" green="0.86274509803921573" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="DlH-gR-drc" secondAttribute="height" multiplier="25:34" id="Pco-b3-O05"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="She-ZC-DYF">
+                                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="She-ZC-DYF" id="RJP-0M-raN">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DlH-gR-drc" firstAttribute="top" secondItem="Y1g-yv-UuL" secondAttribute="bottom" id="AyB-Tt-fL8"/>
+                            <constraint firstAttribute="trailing" secondItem="Y1g-yv-UuL" secondAttribute="trailing" id="BJt-Pt-5uL"/>
+                            <constraint firstItem="Y1g-yv-UuL" firstAttribute="leading" secondItem="L9t-iI-OZH" secondAttribute="leading" id="GkS-jB-8X3"/>
+                            <constraint firstItem="BJN-F4-vg7" firstAttribute="top" secondItem="DlH-gR-drc" secondAttribute="bottom" id="aaK-ld-hVN"/>
+                            <constraint firstItem="DlH-gR-drc" firstAttribute="leading" secondItem="L9t-iI-OZH" secondAttribute="leading" id="eFw-gj-Dbo"/>
+                            <constraint firstAttribute="trailing" secondItem="DlH-gR-drc" secondAttribute="trailing" id="n0t-si-fTC"/>
+                            <constraint firstItem="Y1g-yv-UuL" firstAttribute="top" secondItem="9sa-4V-f7h" secondAttribute="bottom" id="qsP-1f-JDu"/>
+                            <constraint firstItem="DlH-gR-drc" firstAttribute="top" secondItem="Y1g-yv-UuL" secondAttribute="bottom" id="sby-D3-3Z0"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="ZXd-s5-LAz"/>
+                    <tabBarItem key="tabBarItem" title="" image="List" selectedImage="List-Selected" id="ZXd-s5-LAz" userLabel="Place Table">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ebv-ec-n7b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2127" y="-226"/>
         </scene>
-        <!--Item 1-->
+        <!--Place Map View Controller-->
         <scene sceneID="nPa-JG-35N">
             <objects>
                 <viewController id="5kB-n7-lQ5" customClass="PlaceMapViewController" customModule="On_the_Spot" customModuleProvider="target" sceneMemberID="viewController">
@@ -255,12 +296,46 @@
                         <viewControllerLayoutGuide type="top" id="CqI-eR-Bdd"/>
                         <viewControllerLayoutGuide type="bottom" id="ws1-H7-oT5"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="cwb-Pz-n1E">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                    <view key="view" contentMode="scaleToFill" id="cwb-Pz-n1E" userLabel="Places Map View">
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="myb-MI-lNS" userLabel="Place Type">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <color key="backgroundColor" red="0.20784313725490194" green="0.21568627450980393" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="myb-MI-lNS" secondAttribute="height" multiplier="375:44" id="doi-rA-SOd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.8666666666666667" green="0.86274509803921573" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o9Y-fa-AiE" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="44" width="375" height="510"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="o9Y-fa-AiE" secondAttribute="height" multiplier="25:34" id="o6b-5Z-ybE"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="myb-MI-lNS" secondAttribute="trailing" id="2Qx-Yr-W5D"/>
+                            <constraint firstItem="myb-MI-lNS" firstAttribute="top" secondItem="CqI-eR-Bdd" secondAttribute="bottom" id="F17-hA-lVf"/>
+                            <constraint firstItem="ws1-H7-oT5" firstAttribute="top" secondItem="o9Y-fa-AiE" secondAttribute="bottom" id="LVM-gS-vqF"/>
+                            <constraint firstItem="myb-MI-lNS" firstAttribute="leading" secondItem="cwb-Pz-n1E" secondAttribute="leading" id="Xw8-7e-6gb"/>
+                            <constraint firstItem="o9Y-fa-AiE" firstAttribute="top" secondItem="myb-MI-lNS" secondAttribute="bottom" id="x7S-R3-ZuN"/>
+                            <constraint firstAttribute="trailing" secondItem="o9Y-fa-AiE" secondAttribute="trailing" id="xlB-b2-teV"/>
+                            <constraint firstItem="o9Y-fa-AiE" firstAttribute="top" secondItem="myb-MI-lNS" secondAttribute="bottom" id="yTk-M4-5Vj"/>
+                            <constraint firstItem="o9Y-fa-AiE" firstAttribute="leading" secondItem="cwb-Pz-n1E" secondAttribute="leading" id="zTC-71-e7u"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="hOH-Je-Fno"/>
+                    <tabBarItem key="tabBarItem" title="" image="Map" selectedImage="Map-Selected" id="hOH-Je-Fno" userLabel="Place Map">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
+                    <connections>
+                        <outlet property="mapView" destination="o9Y-fa-AiE" id="RvP-BC-zvy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5iT-pE-AUG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -282,10 +357,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <tabBar key="tabBar" contentMode="scaleToFill" itemPositioning="centered" id="ipz-MG-iQP">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" itemPositioning="centered" id="ipz-MG-iQP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="0.31372549019607843" green="0.8666666666666667" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <outlet property="delete" destination="Nds-vP-Vwm" id="hM4-tQ-1ph"/>
@@ -303,7 +380,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BCB-lX-fg9" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="sg9-T6-1uA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="sg9-T6-1uA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.8666666666666667" green="0.86274509803921573" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
@@ -322,7 +399,11 @@
     <resources>
         <image name="Back" width="20" height="20"/>
         <image name="Delete" width="22" height="22"/>
+        <image name="List" width="25" height="25"/>
+        <image name="List-Selected" width="25" height="25"/>
         <image name="Location Pin" width="136" height="171"/>
+        <image name="Map" width="27" height="27"/>
+        <image name="Map-Selected" width="27" height="27"/>
         <image name="Menu" width="20" height="20"/>
         <image name="Places" width="20" height="20"/>
         <image name="Search Bar" width="22" height="22"/>

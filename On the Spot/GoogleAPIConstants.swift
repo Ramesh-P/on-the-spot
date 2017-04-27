@@ -12,6 +12,9 @@ import UIKit
 // MARK: GoogleAPIConstants
 struct Google {
     
+    // Mark: GMS
+    static let gmsKey = "AIzaSyAgj_qd_rh3aGCgyTgWJnFoSPFC5HgqajU"
+    
     // MARK: URLs
     struct URL {
         static let apiScheme = "https"
