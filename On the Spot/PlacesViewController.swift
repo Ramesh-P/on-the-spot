@@ -82,7 +82,7 @@ class PlacesViewController: UIViewController {
         
         // Get authorization to track user location
         locationManager.requestWhenInUseAuthorization()
-        locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
     
     override func didReceiveMemoryWarning() {
