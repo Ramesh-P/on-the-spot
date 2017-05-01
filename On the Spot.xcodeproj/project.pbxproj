@@ -23,6 +23,7 @@
 		CF68A92E1E9D264A004A2B66 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF68A9281E9D264A004A2B66 /* Roboto-Medium.ttf */; };
 		CF68A92F1E9D264A004A2B66 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF68A9291E9D264A004A2B66 /* Roboto-Regular.ttf */; };
 		CF68A9301E9D264A004A2B66 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF68A92A1E9D264A004A2B66 /* Roboto-Thin.ttf */; };
+		CF9536941EB6BF8C0038FBDB /* GooglePlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9536931EB6BF8C0038FBDB /* GooglePlaces.swift */; };
 		CFAF7ECC1E9E942D000A3FCF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAF7ECB1E9E942D000A3FCF /* Constants.swift */; };
 		CFF942CD1EAD7051003D9B7E /* PlaceTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF942CC1EAD7051003D9B7E /* PlaceTabBarController.swift */; };
 		CFF942CF1EAD7CDB003D9B7E /* PlaceMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF942CE1EAD7CDB003D9B7E /* PlaceMapViewController.swift */; };
@@ -48,6 +49,7 @@
 		CF68A9281E9D264A004A2B66 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		CF68A9291E9D264A004A2B66 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		CF68A92A1E9D264A004A2B66 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		CF9536931EB6BF8C0038FBDB /* GooglePlaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlaces.swift; sourceTree = "<group>"; };
 		CFAF7ECB1E9E942D000A3FCF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CFF942CC1EAD7051003D9B7E /* PlaceTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTabBarController.swift; sourceTree = "<group>"; };
 		CFF942CE1EAD7CDB003D9B7E /* PlaceMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceMapViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				CF28C0351EAEE01A0042A0E6 /* GCDBlackBox.swift */,
 				CF261B6F1EA0424B00AB5DB5 /* GoogleAPIConstants.swift */,
 				CF261B711EA0425F00AB5DB5 /* GoogleAPIMethods.swift */,
+				CF9536931EB6BF8C0038FBDB /* GooglePlaces.swift */,
 				CFF942CE1EAD7CDB003D9B7E /* PlaceMapViewController.swift */,
 				CF03C44D1E972737001149DE /* PlacesViewController.swift */,
 				CFF942CC1EAD7051003D9B7E /* PlaceTabBarController.swift */,
@@ -264,6 +267,7 @@
 				CFF942CF1EAD7CDB003D9B7E /* PlaceMapViewController.swift in Sources */,
 				CF03C44C1E972737001149DE /* AppDelegate.swift in Sources */,
 				CF261B721EA0425F00AB5DB5 /* GoogleAPIMethods.swift in Sources */,
+				CF9536941EB6BF8C0038FBDB /* GooglePlaces.swift in Sources */,
 				CF28C0361EAEE01B0042A0E6 /* GCDBlackBox.swift in Sources */,
 				CFAF7ECC1E9E942D000A3FCF /* Constants.swift in Sources */,
 				CFF942D11EAD7CF3003D9B7E /* PlaceTableViewController.swift in Sources */,

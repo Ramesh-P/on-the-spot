@@ -10,5 +10,6 @@ target 'On the Spot' do
     pod 'GooglePlaces'
     pod 'GooglePlacePicker'
     pod 'GoogleMaps'
+    pod 'SwiftyJSON'
 
 end
