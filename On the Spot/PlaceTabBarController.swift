@@ -13,7 +13,8 @@ import UIKit
 class PlaceTabBarController: UITabBarController {
     
     // MARK: Properties
-    var placeType: String = String()
+    var titleFontSize: CGFloat = CGFloat()
+    static var placeType: String = String()
     static var deleteButton: UIBarButtonItem = UIBarButtonItem()
     
     // MARK: Outlets
@@ -31,6 +32,8 @@ class PlaceTabBarController: UITabBarController {
         
         // Initialize
         PlaceTabBarController.deleteButton = delete
+        getFontSize()
+        displayTitle()
         
         // Center align tab bar icons
         let tabBarItems = tabBar.items! as [UITabBarItem]
@@ -47,7 +50,7 @@ class PlaceTabBarController: UITabBarController {
         // Disable map view when place type value is empty
         let tabBarItems = tabBar.items! as [UITabBarItem]
         
-        if (placeType.isEmpty) {
+        if (PlaceTabBarController.placeType.isEmpty) {
             let tabBarItem = tabBarItems[0] as UITabBarItem
             tabBarItem.isEnabled = false
             self.selectedIndex = 1
@@ -57,6 +60,42 @@ class PlaceTabBarController: UITabBarController {
     override func didReceiveMemoryWarning() {
         
         super.didReceiveMemoryWarning()
+    }
+}
+
+// MARK: extension PlaceTabBarController
+extension PlaceTabBarController {
+    
+    // MARK: Class Functions
+    func getFontSize() {
+        
+        // Get screen height
+        let screenHeight = UIScreen.main.bounds.size.height
+        
+        // Get font size
+        switch screenHeight {
+        case Constants.ScreenHeight.phoneSE:
+            titleFontSize = Constants.FontSize.Title.phoneSE
+        case Constants.ScreenHeight.phone:
+            titleFontSize = Constants.FontSize.Title.phone
+        case Constants.ScreenHeight.phonePlus:
+            titleFontSize = Constants.FontSize.Title.phonePlus
+        default:
+            break
+        }
+    }
+    
+    func displayTitle() {
+        
+        // Set title to selected place type
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Roboto-Medium", size: titleFontSize)!]
+        
+        if (PlaceTabBarController.placeType.isEmpty) {
+            self.title = "Saved Places"
+            
+        } else {
+            self.title = PlaceTabBarController.placeType
+        }
     }
 }
 

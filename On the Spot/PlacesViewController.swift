@@ -85,6 +85,14 @@ class PlacesViewController: UIViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        
+        // Stop observing
+        locationManager.stopUpdatingLocation()
+    }
+    
     override func didReceiveMemoryWarning() {
         
         super.didReceiveMemoryWarning()
@@ -94,9 +102,9 @@ class PlacesViewController: UIViewController {
         
         // Show places
         if (segue.identifier == "toPlaceTabBarController") {
-            let controller = segue.destination as! PlaceTabBarController
+            _ = segue.destination as! PlaceTabBarController
             let placeType = sender as! String
-            controller.placeType = placeType
+            PlaceTabBarController.placeType = placeType
         }
     }
 }
@@ -302,6 +310,8 @@ extension PlacesViewController: CLLocationManagerDelegate {
         
         // Start tracking location if authorized by user
         if status == .authorizedWhenInUse {
+            
+            // Start observing
             locationManager.startUpdatingLocation()
         }
     }

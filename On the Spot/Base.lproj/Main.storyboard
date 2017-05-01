@@ -236,26 +236,13 @@
                         <viewControllerLayoutGuide type="top" id="9sa-4V-f7h"/>
                         <viewControllerLayoutGuide type="bottom" id="BJN-F4-vg7"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="L9t-iI-OZH">
+                    <view key="view" contentMode="scaleToFill" id="L9t-iI-OZH" userLabel="Places Table View">
                         <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1g-yv-UuL" userLabel="Blank">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <color key="backgroundColor" red="0.20784313725490194" green="0.21568627450980393" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Y1g-yv-UuL" secondAttribute="height" multiplier="375:44" id="EAm-4B-ooX"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.8666666666666667" green="0.86274509803921573" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="44" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DlH-gR-drc" userLabel="Places List">
-                                <rect key="frame" x="0.0" y="44" width="375" height="510"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <color key="backgroundColor" red="0.8666666666666667" green="0.86274509803921573" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="DlH-gR-drc" secondAttribute="height" multiplier="25:34" id="Pco-b3-O05"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="She-ZC-DYF">
                                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -270,14 +257,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="DlH-gR-drc" firstAttribute="top" secondItem="Y1g-yv-UuL" secondAttribute="bottom" id="AyB-Tt-fL8"/>
-                            <constraint firstAttribute="trailing" secondItem="Y1g-yv-UuL" secondAttribute="trailing" id="BJt-Pt-5uL"/>
-                            <constraint firstItem="Y1g-yv-UuL" firstAttribute="leading" secondItem="L9t-iI-OZH" secondAttribute="leading" id="GkS-jB-8X3"/>
-                            <constraint firstItem="BJN-F4-vg7" firstAttribute="top" secondItem="DlH-gR-drc" secondAttribute="bottom" id="aaK-ld-hVN"/>
-                            <constraint firstItem="DlH-gR-drc" firstAttribute="leading" secondItem="L9t-iI-OZH" secondAttribute="leading" id="eFw-gj-Dbo"/>
-                            <constraint firstAttribute="trailing" secondItem="DlH-gR-drc" secondAttribute="trailing" id="n0t-si-fTC"/>
-                            <constraint firstItem="Y1g-yv-UuL" firstAttribute="top" secondItem="9sa-4V-f7h" secondAttribute="bottom" id="qsP-1f-JDu"/>
-                            <constraint firstItem="DlH-gR-drc" firstAttribute="top" secondItem="Y1g-yv-UuL" secondAttribute="bottom" id="sby-D3-3Z0"/>
+                            <constraint firstItem="BJN-F4-vg7" firstAttribute="top" secondItem="DlH-gR-drc" secondAttribute="bottom" id="aDQ-H9-Rjj"/>
+                            <constraint firstAttribute="trailing" secondItem="DlH-gR-drc" secondAttribute="trailing" id="byV-pt-8gF"/>
+                            <constraint firstItem="DlH-gR-drc" firstAttribute="centerY" secondItem="L9t-iI-OZH" secondAttribute="centerY" id="dTH-qR-tp5"/>
+                            <constraint firstItem="DlH-gR-drc" firstAttribute="top" secondItem="9sa-4V-f7h" secondAttribute="bottom" id="prY-Hx-0Xf"/>
+                            <constraint firstItem="DlH-gR-drc" firstAttribute="centerX" secondItem="L9t-iI-OZH" secondAttribute="centerX" id="vOi-S6-90f"/>
+                            <constraint firstItem="DlH-gR-drc" firstAttribute="leading" secondItem="L9t-iI-OZH" secondAttribute="leading" id="xwP-4d-CDX"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="List" selectedImage="List-Selected" id="ZXd-s5-LAz" userLabel="Place Table">
@@ -300,34 +285,19 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="myb-MI-lNS" userLabel="Place Type">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <color key="backgroundColor" red="0.20784313725490194" green="0.21568627450980393" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="myb-MI-lNS" secondAttribute="height" multiplier="375:44" id="doi-rA-SOd"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.8666666666666667" green="0.86274509803921573" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o9Y-fa-AiE" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="44" width="375" height="510"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="o9Y-fa-AiE" secondAttribute="height" multiplier="25:34" id="o6b-5Z-ybE"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="myb-MI-lNS" secondAttribute="trailing" id="2Qx-Yr-W5D"/>
-                            <constraint firstItem="myb-MI-lNS" firstAttribute="top" secondItem="CqI-eR-Bdd" secondAttribute="bottom" id="F17-hA-lVf"/>
-                            <constraint firstItem="ws1-H7-oT5" firstAttribute="top" secondItem="o9Y-fa-AiE" secondAttribute="bottom" id="LVM-gS-vqF"/>
-                            <constraint firstItem="myb-MI-lNS" firstAttribute="leading" secondItem="cwb-Pz-n1E" secondAttribute="leading" id="Xw8-7e-6gb"/>
-                            <constraint firstItem="o9Y-fa-AiE" firstAttribute="top" secondItem="myb-MI-lNS" secondAttribute="bottom" id="x7S-R3-ZuN"/>
-                            <constraint firstAttribute="trailing" secondItem="o9Y-fa-AiE" secondAttribute="trailing" id="xlB-b2-teV"/>
-                            <constraint firstItem="o9Y-fa-AiE" firstAttribute="top" secondItem="myb-MI-lNS" secondAttribute="bottom" id="yTk-M4-5Vj"/>
-                            <constraint firstItem="o9Y-fa-AiE" firstAttribute="leading" secondItem="cwb-Pz-n1E" secondAttribute="leading" id="zTC-71-e7u"/>
+                            <constraint firstItem="o9Y-fa-AiE" firstAttribute="top" secondItem="CqI-eR-Bdd" secondAttribute="bottom" id="6aU-iC-evC"/>
+                            <constraint firstItem="o9Y-fa-AiE" firstAttribute="leading" secondItem="cwb-Pz-n1E" secondAttribute="leading" id="8wa-EN-ZSq"/>
+                            <constraint firstItem="o9Y-fa-AiE" firstAttribute="centerY" secondItem="cwb-Pz-n1E" secondAttribute="centerY" id="Pmw-Om-ttl"/>
+                            <constraint firstItem="ws1-H7-oT5" firstAttribute="top" secondItem="o9Y-fa-AiE" secondAttribute="bottom" id="c8O-IO-kZc"/>
+                            <constraint firstAttribute="trailing" secondItem="o9Y-fa-AiE" secondAttribute="trailing" id="dgR-jl-NTS"/>
+                            <constraint firstItem="o9Y-fa-AiE" firstAttribute="centerX" secondItem="cwb-Pz-n1E" secondAttribute="centerX" id="sbP-Pp-gXu"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="Map" selectedImage="Map-Selected" id="hOH-Je-Fno" userLabel="Place Map">
@@ -380,11 +350,15 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BCB-lX-fg9" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="sg9-T6-1uA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="sg9-T6-1uA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.8666666666666667" green="0.86274509803921573" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" red="0.20784313725490194" green="0.21568627450980393" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
+                            <color key="textColor" red="0.8666666666666667" green="0.86274509803921573" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
