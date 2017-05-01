@@ -17,6 +17,7 @@
 		CF261B721EA0425F00AB5DB5 /* GoogleAPIMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF261B711EA0425F00AB5DB5 /* GoogleAPIMethods.swift */; };
 		CF261B741EA4452D00AB5DB5 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF261B731EA4452D00AB5DB5 /* Cell.swift */; };
 		CF28C0361EAEE01B0042A0E6 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF28C0351EAEE01A0042A0E6 /* GCDBlackBox.swift */; };
+		CF5E1E861EB6C58800E6D5E9 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF5E1E851EB6C58800E6D5E9 /* SwiftyJSON.framework */; };
 		CF68A92B1E9D264A004A2B66 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF68A9251E9D264A004A2B66 /* Roboto-Black.ttf */; };
 		CF68A92C1E9D264A004A2B66 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF68A9261E9D264A004A2B66 /* Roboto-Bold.ttf */; };
 		CF68A92D1E9D264A004A2B66 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF68A9271E9D264A004A2B66 /* Roboto-Light.ttf */; };
@@ -43,6 +44,7 @@
 		CF261B711EA0425F00AB5DB5 /* GoogleAPIMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleAPIMethods.swift; sourceTree = "<group>"; };
 		CF261B731EA4452D00AB5DB5 /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		CF28C0351EAEE01A0042A0E6 /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
+		CF5E1E851EB6C58800E6D5E9 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../../../../../../../../Library/Developer/Xcode/DerivedData/On_the_Spot-bivlvrajkptrxsabtpfntevktacj/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		CF68A9251E9D264A004A2B66 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		CF68A9261E9D264A004A2B66 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		CF68A9271E9D264A004A2B66 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF5E1E861EB6C58800E6D5E9 /* SwiftyJSON.framework in Frameworks */,
 				6ABA51694A93B4D60535F21B /* Pods_On_the_Spot.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -119,6 +122,7 @@
 		D31222FCD41E79A663C83D86 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CF5E1E851EB6C58800E6D5E9 /* SwiftyJSON.framework */,
 				115DF8E8C9D4CBCE038B5DAB /* Pods_On_the_Spot.framework */,
 			);
 			name = Frameworks;

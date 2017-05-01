@@ -13,6 +13,9 @@ import GoogleMaps
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var searchByDistance: Bool = Bool()
+    var searchRadius: CLLocationDistance = CLLocationDistance()
+    var googlePlaces: [GooglePlaces] = [GooglePlaces]()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -26,6 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Enable Google Mobile Service (GMS)
         GMSServices.provideAPIKey(Google.gmsKey)
         //GMSServices.provideAPIKey(Google.ParameterValues.apiKey)
+        
+        // Set UI object defaults
+        setDefaults()
         
         return true
     }
@@ -50,6 +56,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    // MARK: Application Functions
+    func setDefaults() {
+        
+        searchByDistance = false
+        searchRadius = 5 * 1609.34
     }
 }
 

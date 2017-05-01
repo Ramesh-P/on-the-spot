@@ -16,6 +16,7 @@ import MapKit
 class PlaceMapViewController: UIViewController {
     
     // MARK: Properties
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var placeType: String = String()
     var placeNameFontSize: CGFloat = CGFloat()
     var placeAddressFontSize: CGFloat = CGFloat()
@@ -105,7 +106,7 @@ extension PlaceMapViewController {
         mapView.settings.myLocationButton = true
         mapView.setMinZoom(1, maxZoom: 20)
         zoom = 15.0
-        radius = 5 * 1609.34
+        radius = appDelegate.searchRadius
     }
     
     func initializeLocation() {
@@ -174,6 +175,7 @@ extension PlaceMapViewController {
         
         // Draw circle
         circle.fillColor = UIColor(red: 90.0/255, green: 92.0/255, blue: 107.0/255, alpha: 0.1)
+        //circle.strokeColor = UIColor.clear
         circle.strokeColor = UIColor(red: 57.0/255, green: 57.0/255, blue: 67.0/255, alpha: 1.0)
         circle.strokeWidth = 0.5
         circle.map = mapView

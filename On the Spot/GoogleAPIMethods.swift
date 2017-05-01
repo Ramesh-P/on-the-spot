@@ -7,13 +7,14 @@
 //
 
 import Foundation
+import UIKit
 
 // MARK: GoogleAPIMethods
 class GoogleAPIMethods: NSObject {
     
     // MARK: Properties
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var session = URLSession.shared
-    var jsonData: AnyObject! = nil
     
     // MARK: Initializers
     override init() {
@@ -74,8 +75,8 @@ class GoogleAPIMethods: NSObject {
             Google.ParameterKeys.key: Google.ParameterValues.apiKey
         ]
         
-        let searchByDistance: Bool = true
-        let searchRadius: String = "16000"
+        let searchByDistance = appDelegate.searchByDistance
+        let searchRadius = appDelegate.searchRadius
         
         if (searchByDistance) {
             parameters[Google.ParameterKeys.rankby] = Google.ParameterValues.distance
@@ -104,9 +105,16 @@ class GoogleAPIMethods: NSObject {
                     return
                 }
                 
-                // If success: save parsed JSON data
+                // Check if success
                 if (status == Google.ResponseValues.ok) {
-                    self.jsonData = result
+                    
+                    // If success: parse and get google places detail
+                    if (self.appDelegate.googlePlaces.count != 0) {
+                        self.appDelegate.googlePlaces.removeAll()
+                    }
+
+                    let results = result?[Google.ResponseKeys.results] as! Array<NSDictionary>
+                    self.appDelegate.googlePlaces = GooglePlaces.allPlacesFrom(results)
                     completionHandlerForFetchPlaces(true, nil)
                 } else if (status == Google.ResponseValues.zeroResults) {
                     completionHandlerForFetchPlaces(false, status)
