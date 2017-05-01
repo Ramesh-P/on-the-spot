@@ -40,13 +40,14 @@ class PlaceMapViewController: UIViewController {
         // Initialize
         locationManager.delegate = self
         mapView.delegate = self
-        
+        mapView.clear()
         initializeMap()
         initializeLocation()
         //initializeLocationMarker()
         showCurrentLocation()
         displaySearchRadius()
         setCameraZoom()
+        displayPlaces()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -199,6 +200,21 @@ extension PlaceMapViewController {
         // Set camera zoom
         mapView.moveCamera(update)
         mapView.animate(toLocation: circleCenter)
+    }
+    
+    func displayPlaces() {
+        
+        let places = appDelegate.googlePlaces
+        
+        // Display places on the map
+        for place in places {
+            let position = CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)
+            let marker = GMSMarker(position: position)
+            marker.title = place.name
+            marker.snippet = place.address
+            marker.icon = GMSMarker.markerImage(with: UIColor(red: 57.0/255, green: 57.0/255, blue: 67.0/255, alpha: 1.0))
+            marker.map = mapView
+        }
     }
 }
 
