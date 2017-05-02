@@ -17,10 +17,6 @@ class PlaceMapViewController: UIViewController {
     
     // MARK: Properties
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    var placeType: String = String()
-    var placeNameFontSize: CGFloat = CGFloat()
-    var placeAddressFontSize: CGFloat = CGFloat()
-    
     let locationManager: CLLocationManager = CLLocationManager()
     var latitude: Double = Double()
     var longitude: Double = Double()
@@ -57,10 +53,6 @@ class PlaceMapViewController: UIViewController {
         // Hide delete button
         PlaceTabBarController.deleteButton.image = UIImage(named: "Blank")
         PlaceTabBarController.deleteButton.isEnabled = false
-        
-        // Initialize
-        getFontSize()
-        setFontStyle()
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,32 +65,6 @@ class PlaceMapViewController: UIViewController {
 extension PlaceMapViewController {
     
     // MARK: Class Functions
-    func getFontSize() {
-        
-        // Get screen height
-        let screenHeight = UIScreen.main.bounds.size.height
-        
-        // Get font size
-        switch screenHeight {
-        case Constants.ScreenHeight.phoneSE:
-            placeNameFontSize = Constants.FontSize.Place.Medium.phoneSE
-            placeAddressFontSize = Constants.FontSize.Place.Small.phoneSE
-        case Constants.ScreenHeight.phone:
-            placeNameFontSize = Constants.FontSize.Place.Medium.phone
-            placeAddressFontSize = Constants.FontSize.Place.Small.phone
-        case Constants.ScreenHeight.phonePlus:
-            placeNameFontSize = Constants.FontSize.Place.Medium.phonePlus
-            placeAddressFontSize = Constants.FontSize.Place.Small.phonePlus
-        default:
-            break
-        }
-    }
-    
-    func setFontStyle() {
-        
-        // Set font style
-    }
-    
     func initializeMap() {
         
         // Initialize
@@ -106,7 +72,7 @@ extension PlaceMapViewController {
         mapView.isMyLocationEnabled = true
         mapView.settings.myLocationButton = true
         mapView.setMinZoom(1, maxZoom: 20)
-        zoom = 15.0
+        zoom = 12.5 /* 1: World, 5: Landmass/Continent, 10: City, 15: Streets, 20: Buildings */
         radius = appDelegate.searchRadius
     }
     
@@ -170,6 +136,10 @@ extension PlaceMapViewController {
     
     func displaySearchRadius() {
         
+        if (appDelegate.searchByDistance) {
+            return
+        }
+        
         // Set search radius
         circleCenter = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         let circle = GMSCircle(position: circleCenter, radius: radius)
@@ -183,6 +153,10 @@ extension PlaceMapViewController {
     }
     
     func setCameraZoom() {
+        
+        if (appDelegate.searchByDistance) {
+            return
+        }
         
         // Set region
         var coordinate = circleCenter
@@ -212,7 +186,8 @@ extension PlaceMapViewController {
             let marker = GMSMarker(position: position)
             marker.title = place.name
             marker.snippet = place.address
-            marker.icon = GMSMarker.markerImage(with: UIColor(red: 57.0/255, green: 57.0/255, blue: 67.0/255, alpha: 1.0))
+            //marker.icon = GMSMarker.markerImage(with: UIColor(red: 57.0/255, green: 57.0/255, blue: 67.0/255, alpha: 1.0))
+            marker.icon = UIImage(named: "Place Pin")
             marker.map = mapView
         }
     }
@@ -226,5 +201,20 @@ extension PlaceMapViewController: CLLocationManagerDelegate {
 // MARK: PlaceMapViewController: GMSMapViewDelegate
 extension PlaceMapViewController: GMSMapViewDelegate {
     
+    func didTapMyLocationButton(for mapView: GMSMapView) -> Bool {
+        
+        // Get current location
+        latitude = (mapView.myLocation?.coordinate.latitude)!
+        longitude = (mapView.myLocation?.coordinate.longitude)!
+        
+        // Reset zoom
+        if (appDelegate.searchByDistance) {
+            showCurrentLocation()
+        } else {
+            setCameraZoom()
+        }
+        
+        return true
+    }
 }
 
