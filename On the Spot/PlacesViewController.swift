@@ -14,6 +14,7 @@ import CoreLocation
 class PlacesViewController: UIViewController {
     
     // MARK: Properties
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var addressFontSize: CGFloat = CGFloat()
     var locationFontSize: CGFloat = CGFloat()
     var searchFontSize: CGFloat = CGFloat()
@@ -407,7 +408,11 @@ extension PlacesViewController: UICollectionViewDataSource, UICollectionViewDele
                     var errorMessage: String = error!
                     
                     if (errorMessage == Google.ResponseValues.zeroResults) {
-                        errorMessage = "There is no " + (placeType).lowercased() + " nearby. Please increase the radius and search again"
+                        if (self.appDelegate.searchByDistance) {
+                            errorMessage = "There is no " + (placeType).lowercased() + " nearby within 30 miles"
+                        } else {
+                            errorMessage = "There is no " + (placeType).lowercased() + " nearby. Please increase the radius and search again"
+                        }
                     }
                     
                     self.displayError(errorMessage)

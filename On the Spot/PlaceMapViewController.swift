@@ -243,11 +243,29 @@ extension PlaceMapViewController: GMSMapViewDelegate {
         latitude = (mapView.myLocation?.coordinate.latitude)!
         longitude = (mapView.myLocation?.coordinate.longitude)!
         
+        let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        locationMarker.position = coordinate
+        
         // Reset zoom
         setCameraZoom()
         mapView.selectedMarker = nil
         
         return true
+    }
+    
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+ 
+        // Set selected marker image
+        mapView.selectedMarker = marker
+        marker.icon = UIImage(named: "Place Pin Selected")
+        
+        return true
+    }
+    
+    func mapView(_ mapView: GMSMapView, didCloseInfoWindowOf marker: GMSMarker) {
+        
+        // Reset unselected marker image
+        marker.icon = UIImage(named: "Place Pin")
     }
 }
 
