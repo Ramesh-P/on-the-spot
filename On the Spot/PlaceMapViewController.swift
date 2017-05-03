@@ -141,7 +141,6 @@ extension PlaceMapViewController {
         return resizedImage!
     }
     
-    
     func showCurrentLocation() {
         
         /*
@@ -182,33 +181,35 @@ extension PlaceMapViewController {
     
     func setCameraZoom() {
         
-        // Set origin
-        var point: CLLocationCoordinate2D = CLLocationCoordinate2D()
-        
+        var location: CLLocationCoordinate2D = CLLocationCoordinate2D()
         if (appDelegate.searchByDistance) {
-            point = locationMarker.position
+            location = locationMarker.position
         } else {
-            point = circleCenter
+            location = circleCenter
         }
         
         // Set region
-        let region = MKCoordinateRegionMakeWithDistance(point, latitudinalDistance, longitudinalDistance)
+        var coordinate = location
+        let region = MKCoordinateRegionMakeWithDistance(coordinate, latitudinalDistance, longitudinalDistance)
         let span = region.span
         
+        coordinate.latitude = coordinate.latitude + span.latitudeDelta
+        coordinate.longitude = coordinate.longitude + span.longitudeDelta
+        
         // Set bounds
-        var range: CLLocationCoordinate2D = CLLocationCoordinate2D()
-        range.latitude = point.latitude + span.latitudeDelta
-        range.longitude = point.longitude + span.longitudeDelta
-
-        let bounds = GMSCoordinateBounds(coordinate: point, coordinate: range)
+        let range = coordinate
+        let bounds = GMSCoordinateBounds(coordinate: location, coordinate: range)
         let update = GMSCameraUpdate.fit(bounds, withPadding: 5.0)
-
-        // Set camera zoom
+        
+        // Set camera location
         mapView.moveCamera(update)
-        mapView.animate(toLocation: point)
-        mapView.animate(toViewingAngle: angle)
-        mapView.animate(toZoom: zoom)
-        mapView.animate(toBearing: bearing)
+        mapView.animate(toLocation: location)
+        
+        // Animate camera
+        if (appDelegate.searchByDistance) {
+            mapView.animate(toViewingAngle: angle)
+            mapView.animate(toZoom: zoom)
+        }
     }
     
     func displayPlaces() {
@@ -243,13 +244,9 @@ extension PlaceMapViewController: GMSMapViewDelegate {
         longitude = (mapView.myLocation?.coordinate.longitude)!
         
         // Reset zoom
-        if (appDelegate.searchByDistance) {
-            showCurrentLocation()
-        } else {
-            setCameraZoom()
-        }
- 
+        setCameraZoom()
         mapView.selectedMarker = nil
+        
         return true
     }
 }
