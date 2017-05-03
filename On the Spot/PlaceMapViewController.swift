@@ -259,6 +259,9 @@ extension PlaceMapViewController: GMSMapViewDelegate {
         mapView.selectedMarker = marker
         marker.icon = UIImage(named: "Place Pin Selected")
         
+        // Reposition camera
+        mapView.animate(toLocation: marker.position)
+        
         return true
     }
     
