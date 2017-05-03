@@ -18,12 +18,16 @@ class PlaceMapViewController: UIViewController {
     // MARK: Properties
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let locationManager: CLLocationManager = CLLocationManager()
+    var locationMarker: GMSMarker = GMSMarker()
     var latitude: Double = Double()
     var longitude: Double = Double()
-    var locationMarker: GMSMarker = GMSMarker()
-    var circleCenter: CLLocationCoordinate2D = CLLocationCoordinate2D()
+    var bearing: Double = Double()
     var zoom: Float = Float()
+    var angle: Double = Double()
     var radius: CLLocationDistance = CLLocationDistance()
+    var latitudinalDistance: CLLocationDistance = CLLocationDistance()
+    var longitudinalDistance: CLLocationDistance = CLLocationDistance()
+    var circleCenter: CLLocationCoordinate2D = CLLocationCoordinate2D()
     
     // MARK: Outlets
     @IBOutlet var mapView: GMSMapView!
@@ -37,9 +41,12 @@ class PlaceMapViewController: UIViewController {
         locationManager.delegate = self
         mapView.delegate = self
         mapView.clear()
+        
+        setDefaults()
         initializeMap()
         initializeLocation()
         //initializeLocationMarker()
+        
         showCurrentLocation()
         displaySearchRadius()
         setCameraZoom()
@@ -65,15 +72,35 @@ class PlaceMapViewController: UIViewController {
 extension PlaceMapViewController {
     
     // MARK: Class Functions
+    func setDefaults() {
+        
+        bearing = 0 /* 0: North, 90: East, 180: South, 270: West */
+        radius = appDelegate.searchRadius
+        
+        if (appDelegate.searchByDistance) {
+            
+            // Set values for street level
+            mapView.setMinZoom(10, maxZoom: 20)
+            zoom = 16.25 // (15 and 17.5) /* 1: World, 5: Landmass/Continent, 10: City, 15: Streets, 20: Buildings */
+            angle = 60 // (30 and 65) /* 0: Pointing straight down at the map */
+            latitudinalDistance = CLLocationDistance(self.view.bounds.height)
+            longitudinalDistance = CLLocationDistance(self.view.bounds.width)
+        } else {
+            
+            // Set values for aerial
+            mapView.setMinZoom(1, maxZoom: 20)
+            zoom = 1
+            angle = 0
+            latitudinalDistance = radius * 2
+            longitudinalDistance = radius * 2
+        }
+    }
+
     func initializeMap() {
         
         // Initialize
-        mapView.animate(toBearing: 0)
         mapView.isMyLocationEnabled = true
         mapView.settings.myLocationButton = true
-        mapView.setMinZoom(1, maxZoom: 20)
-        zoom = 12.5 /* 1: World, 5: Landmass/Continent, 10: City, 15: Streets, 20: Buildings */
-        radius = appDelegate.searchRadius
     }
     
     func initializeLocation() {
@@ -114,6 +141,7 @@ extension PlaceMapViewController {
         return resizedImage!
     }
     
+    
     func showCurrentLocation() {
         
         /*
@@ -127,7 +155,7 @@ extension PlaceMapViewController {
         locationMarker.position = coordinate
         
         // Display current location on the map
-        let camera: GMSCameraPosition = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: zoom)
+        let camera: GMSCameraPosition = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: zoom, bearing: bearing, viewingAngle: angle)
         mapView.camera = camera
         
         // Stop observing
@@ -154,26 +182,33 @@ extension PlaceMapViewController {
     
     func setCameraZoom() {
         
+        // Set origin
+        var point: CLLocationCoordinate2D = CLLocationCoordinate2D()
+        
         if (appDelegate.searchByDistance) {
-            return
+            point = locationMarker.position
+        } else {
+            point = circleCenter
         }
         
         // Set region
-        var coordinate = circleCenter
-        let region = MKCoordinateRegionMakeWithDistance(coordinate, radius * 2, radius * 2)
+        let region = MKCoordinateRegionMakeWithDistance(point, latitudinalDistance, longitudinalDistance)
         let span = region.span
         
-        coordinate.latitude = coordinate.latitude + span.latitudeDelta
-        coordinate.longitude = coordinate.longitude + span.longitudeDelta
-        
         // Set bounds
-        let range = coordinate
-        let bounds = GMSCoordinateBounds(coordinate: circleCenter, coordinate: range)
+        var range: CLLocationCoordinate2D = CLLocationCoordinate2D()
+        range.latitude = point.latitude + span.latitudeDelta
+        range.longitude = point.longitude + span.longitudeDelta
+
+        let bounds = GMSCoordinateBounds(coordinate: point, coordinate: range)
         let update = GMSCameraUpdate.fit(bounds, withPadding: 5.0)
-        
+
         // Set camera zoom
         mapView.moveCamera(update)
-        mapView.animate(toLocation: circleCenter)
+        mapView.animate(toLocation: point)
+        mapView.animate(toViewingAngle: angle)
+        mapView.animate(toZoom: zoom)
+        mapView.animate(toBearing: bearing)
     }
     
     func displayPlaces() {
@@ -213,7 +248,8 @@ extension PlaceMapViewController: GMSMapViewDelegate {
         } else {
             setCameraZoom()
         }
-        
+ 
+        mapView.selectedMarker = nil
         return true
     }
 }
