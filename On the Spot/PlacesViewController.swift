@@ -35,9 +35,11 @@ class PlacesViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     
     // MARK: Actions
-    @IBAction func menu(_ sender: UIBarButtonItem) {
+    @IBAction func setting(_ sender: UIBarButtonItem) {
         
-        // TO DO: Display menu options
+        // Present settings view
+        let controller = self.storyboard!.instantiateViewController(withIdentifier: "SettingNavigationController") as! UINavigationController
+        self.present(controller, animated: true, completion: nil)
     }
     
     @IBAction func places(_ sender: UIBarButtonItem) {
