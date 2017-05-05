@@ -24,6 +24,7 @@ class PlaceMapViewController: UIViewController {
     var bearing: Double = Double()
     var zoom: Float = Float()
     var angle: Double = Double()
+    var searchNearby: Bool = Bool()
     var radius: CLLocationDistance = CLLocationDistance()
     var latitudinalDistance: CLLocationDistance = CLLocationDistance()
     var longitudinalDistance: CLLocationDistance = CLLocationDistance()
@@ -75,9 +76,10 @@ extension PlaceMapViewController {
     func setDefaults() {
         
         bearing = 0 /* 0: North, 90: East, 180: South, 270: West */
+        searchNearby = appDelegate.searchNearby
         radius = appDelegate.searchRadius
         
-        if (appDelegate.searchByDistance) {
+        if (searchNearby) {
             
             // Set values for street level
             mapView.setMinZoom(10, maxZoom: 20)
@@ -163,7 +165,7 @@ extension PlaceMapViewController {
     
     func displaySearchRadius() {
         
-        if (appDelegate.searchByDistance) {
+        if (searchNearby) {
             return
         }
         
@@ -182,7 +184,7 @@ extension PlaceMapViewController {
     func setCameraZoom() {
         
         var location: CLLocationCoordinate2D = CLLocationCoordinate2D()
-        if (appDelegate.searchByDistance) {
+        if (searchNearby) {
             location = locationMarker.position
         } else {
             location = circleCenter
@@ -206,7 +208,7 @@ extension PlaceMapViewController {
         mapView.animate(toLocation: location)
         
         // Animate camera
-        if (appDelegate.searchByDistance) {
+        if (searchNearby) {
             mapView.animate(toViewingAngle: angle)
             mapView.animate(toZoom: zoom)
         }

@@ -278,10 +278,13 @@
                                                     <constraint firstAttribute="width" secondItem="0X0-37-lJE" secondAttribute="height" multiplier="351:28" id="6LK-2X-dp6"/>
                                                 </constraints>
                                                 <segments>
-                                                    <segment title="Prominence"/>
+                                                    <segment title="Nearby"/>
                                                     <segment title="Distance"/>
                                                 </segments>
                                                 <color key="tintColor" red="0.31372549019607843" green="0.8666666666666667" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <action selector="searchType:" destination="B7f-YI-3Ir" eventType="valueChanged" id="WMu-N4-3G4"/>
+                                                </connections>
                                             </segmentedControl>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Places are searched based on their ranking and not by their distance to your current location." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="54g-n9-iSB" userLabel="Type Description">
                                                 <rect key="frame" x="12" y="72" width="351" height="63"/>
@@ -322,7 +325,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YzS-2N-9ri" userLabel="Button Frame">
                                         <rect key="frame" x="0.0" y="195" width="375" height="216"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4YM-XV-oFU">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4YM-XV-oFU">
                                                 <rect key="frame" x="12" y="36" width="109" height="44"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -332,8 +335,11 @@
                                                 <state key="normal" title="1 Mile">
                                                     <color key="titleColor" red="0.8666666666666667" green="0.86274509803921573" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="searchDistance:" destination="B7f-YI-3Ir" eventType="touchUpInside" id="zHH-lm-aPg"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJV-R4-TF0">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJV-R4-TF0">
                                                 <rect key="frame" x="133" y="36" width="109" height="44"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -343,8 +349,11 @@
                                                 <state key="normal" title="2 Miles">
                                                     <color key="titleColor" red="0.8666666666666667" green="0.86274509803921573" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="searchDistance:" destination="B7f-YI-3Ir" eventType="touchUpInside" id="3fG-Pz-t7k"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="35y-P4-fsA">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="35y-P4-fsA">
                                                 <rect key="frame" x="254" y="36" width="109" height="44"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -354,8 +363,11 @@
                                                 <state key="normal" title="3 Miles">
                                                     <color key="titleColor" red="0.8666666666666667" green="0.86274509803921573" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="searchDistance:" destination="B7f-YI-3Ir" eventType="touchUpInside" id="9TI-Ab-YG7"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRb-vq-jFw">
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRb-vq-jFw">
                                                 <rect key="frame" x="12" y="92" width="109" height="44"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -365,8 +377,11 @@
                                                 <state key="normal" title="4 Miles">
                                                     <color key="titleColor" red="0.8666666666666667" green="0.86274509803921573" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="searchDistance:" destination="B7f-YI-3Ir" eventType="touchUpInside" id="TIq-Mg-i3I"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g52-Zr-mfY">
+                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g52-Zr-mfY">
                                                 <rect key="frame" x="133" y="92" width="109" height="44"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -376,8 +391,11 @@
                                                 <state key="normal" title="5 Miles">
                                                     <color key="titleColor" red="0.8666666666666667" green="0.86274509803921573" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="searchDistance:" destination="B7f-YI-3Ir" eventType="touchUpInside" id="iEZ-Oa-UDy"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0g-4l-wFz">
+                                            <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0g-4l-wFz">
                                                 <rect key="frame" x="254" y="92" width="109" height="44"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -387,8 +405,11 @@
                                                 <state key="normal" title="10 Miles">
                                                     <color key="titleColor" red="0.8666666666666667" green="0.86274509803921573" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="searchDistance:" destination="B7f-YI-3Ir" eventType="touchUpInside" id="Omb-9v-a7U"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLx-72-ZeB">
+                                            <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLx-72-ZeB">
                                                 <rect key="frame" x="12" y="148" width="109" height="44"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -398,8 +419,11 @@
                                                 <state key="normal" title="15 Miles">
                                                     <color key="titleColor" red="0.8666666666666667" green="0.86274509803921573" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="searchDistance:" destination="B7f-YI-3Ir" eventType="touchUpInside" id="xFl-AN-nIG"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rU9-sU-w3g">
+                                            <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rU9-sU-w3g">
                                                 <rect key="frame" x="133" y="148" width="109" height="44"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -409,8 +433,11 @@
                                                 <state key="normal" title="20 Miles">
                                                     <color key="titleColor" red="0.8666666666666667" green="0.86274509803921573" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="searchDistance:" destination="B7f-YI-3Ir" eventType="touchUpInside" id="ZaA-nA-Y0x"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mdu-ba-8Gl">
+                                            <button opaque="NO" tag="30" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mdu-ba-8Gl">
                                                 <rect key="frame" x="254" y="148" width="109" height="44"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -420,6 +447,9 @@
                                                 <state key="normal" title="30 Miles">
                                                     <color key="titleColor" red="0.8666666666666667" green="0.86274509803921573" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="searchDistance:" destination="B7f-YI-3Ir" eventType="touchUpInside" id="hVd-pP-vXM"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search Radius" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nK-dS-wAM" userLabel="Distance Label">
                                                 <rect key="frame" x="12" y="0.0" width="351" height="36"/>
@@ -541,6 +571,9 @@
                                         <state key="normal" title="Acknowledgements &amp; Credits">
                                             <color key="titleColor" red="0.8666666666666667" green="0.86274509803921573" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="appCredit:" destination="B7f-YI-3Ir" eventType="touchUpInside" id="Tbj-ar-Gbc"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTN-0T-cIv" userLabel="Help">
                                         <rect key="frame" x="12" y="74" width="351" height="44"/>
@@ -552,6 +585,9 @@
                                         <state key="normal" title="How To">
                                             <color key="titleColor" red="0.8666666666666667" green="0.86274509803921573" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="appHelp:" destination="B7f-YI-3Ir" eventType="touchUpInside" id="DTs-Cq-1Sc"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8TN-q6-4a6" userLabel="Legal">
                                         <rect key="frame" x="12" y="118" width="351" height="44"/>
@@ -560,6 +596,9 @@
                                         <state key="normal" title="Legal">
                                             <color key="titleColor" red="0.8666666666666667" green="0.86274509803921573" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="legalTerms:" destination="B7f-YI-3Ir" eventType="touchUpInside" id="kph-rg-W7R"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -606,6 +645,22 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="credit" destination="SxX-Ev-Xc8" id="ZKk-YE-9Ed"/>
+                        <outlet property="help" destination="dTN-0T-cIv" id="Iai-GM-s8c"/>
+                        <outlet property="legal" destination="8TN-q6-4a6" id="i53-cl-h0M"/>
+                        <outlet property="typeDescription" destination="54g-n9-iSB" id="8DE-DS-3dU"/>
+                        <outlet property="typeSegmentedControl" destination="0X0-37-lJE" id="Txy-RX-GJ6"/>
+                        <outletCollection property="titleLabels" destination="CmX-HW-H3Q" collectionClass="NSMutableArray" id="Fvr-H9-lZB"/>
+                        <outletCollection property="titleLabels" destination="1nK-dS-wAM" collectionClass="NSMutableArray" id="eET-wx-3Gq"/>
+                        <outletCollection property="distanceButtons" destination="4YM-XV-oFU" collectionClass="NSMutableArray" id="Gr3-tU-MVI"/>
+                        <outletCollection property="distanceButtons" destination="KJV-R4-TF0" collectionClass="NSMutableArray" id="Ku9-Pn-52L"/>
+                        <outletCollection property="distanceButtons" destination="35y-P4-fsA" collectionClass="NSMutableArray" id="7Jq-Rp-F0g"/>
+                        <outletCollection property="distanceButtons" destination="LRb-vq-jFw" collectionClass="NSMutableArray" id="J4P-0s-l3K"/>
+                        <outletCollection property="distanceButtons" destination="g52-Zr-mfY" collectionClass="NSMutableArray" id="kPV-gj-MYt"/>
+                        <outletCollection property="distanceButtons" destination="c0g-4l-wFz" collectionClass="NSMutableArray" id="0L5-kp-gnJ"/>
+                        <outletCollection property="distanceButtons" destination="cLx-72-ZeB" collectionClass="NSMutableArray" id="9hT-uh-gdI"/>
+                        <outletCollection property="distanceButtons" destination="rU9-sU-w3g" collectionClass="NSMutableArray" id="f1q-SA-8kR"/>
+                        <outletCollection property="distanceButtons" destination="Mdu-ba-8Gl" collectionClass="NSMutableArray" id="EPO-Zv-CG3"/>
                         <segue destination="lof-JI-aUT" kind="show" id="0F2-mO-NbS"/>
                     </connections>
                 </viewController>
@@ -753,7 +808,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BCB-lX-fg9" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="sg9-T6-1uA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="sg9-T6-1uA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.8666666666666667" green="0.86274509803921573" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
@@ -777,7 +832,7 @@
             <objects>
                 <navigationController storyboardIdentifier="SettingNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="APB-JT-CSA" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="M3d-js-F8c">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="M3d-js-F8c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.8666666666666667" green="0.86274509803921573" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>

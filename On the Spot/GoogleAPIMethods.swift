@@ -75,10 +75,10 @@ class GoogleAPIMethods: NSObject {
             Google.ParameterKeys.key: Google.ParameterValues.apiKey
         ]
         
-        let searchByDistance = appDelegate.searchByDistance
+        let searchNearby = appDelegate.searchNearby
         let searchRadius = appDelegate.searchRadius
         
-        if (searchByDistance) {
+        if (searchNearby) {
             parameters[Google.ParameterKeys.rankby] = Google.ParameterValues.distance
         } else {
             parameters[Google.ParameterKeys.rankby] = Google.ParameterValues.prominence

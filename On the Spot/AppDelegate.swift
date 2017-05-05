@@ -13,7 +13,9 @@ import GoogleMaps
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var searchByDistance: Bool = Bool()
+    let defaults = UserDefaults.standard
+    var searchNearby: Bool = Bool()
+    var distanceInMiles: Double = Double()
     var searchRadius: CLLocationDistance = CLLocationDistance()
     var googlePlaces: [GooglePlaces] = [GooglePlaces]()
 
@@ -61,8 +63,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: Application Functions
     func setDefaults() {
         
-        searchByDistance = false
-        searchRadius = 5 * 1609.34
+        // Initialize
+        if (defaults.value(forKey: "searchNearby") == nil) {
+            defaults.set(true, forKey: "searchNearby")
+        }
+        
+        if (defaults.value(forKey: "distanceInMiles") == nil) {
+            defaults.set(5, forKey: "distanceInMiles")
+        }
+        
+        // Set default values for search type & radius
+        searchNearby = defaults.bool(forKey: "searchNearby")
+        distanceInMiles = defaults.double(forKey: "distanceInMiles")
+        searchRadius = distanceInMiles * Constants.metersPerMile
     }
 }
 

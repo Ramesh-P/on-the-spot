@@ -410,7 +410,7 @@ extension PlacesViewController: UICollectionViewDataSource, UICollectionViewDele
                     var errorMessage: String = error!
                     
                     if (errorMessage == Google.ResponseValues.zeroResults) {
-                        if (self.appDelegate.searchByDistance) {
+                        if (self.appDelegate.searchNearby) {
                             errorMessage = "There is no " + (placeType).lowercased() + " nearby within 30 miles"
                         } else {
                             errorMessage = "There is no " + (placeType).lowercased() + " nearby. Please increase the radius and search again"
