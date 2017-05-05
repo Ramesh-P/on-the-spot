@@ -1,5 +1,5 @@
 //
-//  DetailViewController.swift
+//  DocumentViewController.swift
 //  On the Spot
 //
 //  Created by Ramesh Parthasarathy on 5/4/17.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-// MARK: DetailViewController
-class DetailViewController: UIViewController {
+// MARK: DocumentViewController
+class DocumentViewController: UIViewController {
     
     // MARK: Properties
     

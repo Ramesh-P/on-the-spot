@@ -668,10 +668,10 @@
             </objects>
             <point key="canvasLocation" x="454" y="124"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--Document View Controller-->
         <scene sceneID="rcA-Jo-kk6">
             <objects>
-                <viewController id="lof-JI-aUT" customClass="DetailViewController" customModule="On_the_Spot" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lof-JI-aUT" customClass="DocumentViewController" customModule="On_the_Spot" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qC7-LD-qrw"/>
                         <viewControllerLayoutGuide type="bottom" id="Ve7-kS-NIE"/>
@@ -832,7 +832,7 @@
             <objects>
                 <navigationController storyboardIdentifier="SettingNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="APB-JT-CSA" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="M3d-js-F8c">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="M3d-js-F8c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.8666666666666667" green="0.86274509803921573" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
