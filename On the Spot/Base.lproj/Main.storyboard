@@ -582,7 +582,7 @@
                                             <constraint firstAttribute="width" secondItem="dTN-0T-cIv" secondAttribute="height" multiplier="351:44" id="88U-a9-HDl"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
-                                        <state key="normal" title="How To">
+                                        <state key="normal" title="User Guide">
                                             <color key="titleColor" red="0.8666666666666667" green="0.86274509803921573" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -661,7 +661,7 @@
                         <outletCollection property="distanceButtons" destination="cLx-72-ZeB" collectionClass="NSMutableArray" id="9hT-uh-gdI"/>
                         <outletCollection property="distanceButtons" destination="rU9-sU-w3g" collectionClass="NSMutableArray" id="f1q-SA-8kR"/>
                         <outletCollection property="distanceButtons" destination="Mdu-ba-8Gl" collectionClass="NSMutableArray" id="EPO-Zv-CG3"/>
-                        <segue destination="lof-JI-aUT" kind="show" id="0F2-mO-NbS"/>
+                        <segue destination="lof-JI-aUT" kind="show" identifier="toDocumentViewController" id="0F2-mO-NbS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TK7-wi-8tt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -679,10 +679,53 @@
                     <view key="view" contentMode="scaleToFill" id="YJu-MS-ida">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HPW-64-eZe" userLabel="Blank Frame">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <color key="backgroundColor" red="0.20784313725490194" green="0.21568627450980393" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="HPW-64-eZe" secondAttribute="height" multiplier="375:44" id="aCD-se-Axc"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fBe-jr-Yvj" userLabel="Document Frame">
+                                <rect key="frame" x="0.0" y="44" width="375" height="559"/>
+                                <subviews>
+                                    <webView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HqR-bT-jA8">
+                                        <rect key="frame" x="12" y="0.0" width="351" height="547"/>
+                                        <color key="backgroundColor" red="0.8666666666666667" green="0.86274509803921573" blue="0.85490196078431369" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </webView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.20784313725490194" green="0.21568627450980393" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="HqR-bT-jA8" secondAttribute="bottom" constant="12" id="8ub-41-lWU"/>
+                                    <constraint firstItem="HqR-bT-jA8" firstAttribute="top" secondItem="fBe-jr-Yvj" secondAttribute="top" id="9AE-9F-7aT"/>
+                                    <constraint firstAttribute="trailing" secondItem="HqR-bT-jA8" secondAttribute="trailing" constant="12" id="WgA-a2-Q93"/>
+                                    <constraint firstItem="HqR-bT-jA8" firstAttribute="leading" secondItem="fBe-jr-Yvj" secondAttribute="leading" constant="12" id="eMG-QX-QZy"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="HPW-64-eZe" secondAttribute="trailing" id="B3V-k9-K8p"/>
+                            <constraint firstAttribute="trailing" secondItem="fBe-jr-Yvj" secondAttribute="trailing" id="DdL-Oi-Uoe"/>
+                            <constraint firstItem="Ve7-kS-NIE" firstAttribute="top" secondItem="fBe-jr-Yvj" secondAttribute="bottom" id="WXe-33-u2Y"/>
+                            <constraint firstItem="fBe-jr-Yvj" firstAttribute="leading" secondItem="YJu-MS-ida" secondAttribute="leading" id="eQv-Jc-WX3"/>
+                            <constraint firstItem="HPW-64-eZe" firstAttribute="top" secondItem="qC7-LD-qrw" secondAttribute="bottom" id="iX0-A4-5CF"/>
+                            <constraint firstItem="HPW-64-eZe" firstAttribute="leading" secondItem="YJu-MS-ida" secondAttribute="leading" id="lBS-kS-WWa"/>
+                            <constraint firstItem="fBe-jr-Yvj" firstAttribute="top" secondItem="HPW-64-eZe" secondAttribute="bottom" id="q53-js-8Jd"/>
+                            <constraint firstItem="fBe-jr-Yvj" firstAttribute="top" secondItem="HPW-64-eZe" secondAttribute="bottom" id="tmB-bT-AdL"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="sdo-ZH-KfU">
+                        <barButtonItem key="leftBarButtonItem" image="Back" id="AHx-fW-ABy" userLabel="Back">
+                            <connections>
+                                <segue destination="e3c-9a-McM" kind="unwind" unwindAction="unwindToSettingViewControllerWithSegue:" id="dh5-dK-5b9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ITL-2o-nGH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="e3c-9a-McM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1254" y="124"/>
         </scene>
@@ -808,7 +851,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BCB-lX-fg9" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="sg9-T6-1uA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="sg9-T6-1uA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.8666666666666667" green="0.86274509803921573" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>

@@ -67,16 +67,26 @@ class SettingViewController: UIViewController {
     
     @IBAction func appCredit(_ sender: UIButton) {
         
-        
+        // Show acknowledgements & credits
+        let documentName = "Credit"
+        self.performSegue(withIdentifier: "toDocumentViewController", sender: documentName)
     }
     
     @IBAction func appHelp(_ sender: UIButton) {
         
-        
+        // Show user guide
+        let documentName = "Help"
+        self.performSegue(withIdentifier: "toDocumentViewController", sender: documentName)
     }
     
     @IBAction func legalTerms(_ sender: UIButton) {
         
+        // Show terms and conditions
+        let documentName = "Legal"
+        self.performSegue(withIdentifier: "toDocumentViewController", sender: documentName)
+    }
+    
+    @IBAction func unwindToSettingViewController(segue: UIStoryboardSegue) {
         
     }
     
@@ -100,6 +110,16 @@ class SettingViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         
         super.didReceiveMemoryWarning()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // Show documents
+        if (segue.identifier == "toDocumentViewController") {
+            let controller = segue.destination as! DocumentViewController
+            let documentName = sender as! String
+            controller.documentName = documentName
+        }
     }
 }
 
@@ -139,9 +159,8 @@ extension SettingViewController {
         for titleLabel in titleLabels {
             titleLabel.font = UIFont(name: "Roboto-Medium", size: titleFontSize)
         }
-        
-        let font = UIFont(name: "Roboto-Regular", size: contentFontSize)
-        typeSegmentedControl.setTitleTextAttributes([NSFontAttributeName: font!], for: .normal)
+
+        typeSegmentedControl.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Roboto-Regular", size: contentFontSize)!], for: .normal)
         typeDescription.font = UIFont(name: "Roboto-Regular", size: messageFontSize)
         
         for distanceButton in distanceButtons {
