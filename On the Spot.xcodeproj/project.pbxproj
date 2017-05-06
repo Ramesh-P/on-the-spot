@@ -13,6 +13,12 @@
 		CF03C4511E972737001149DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF03C44F1E972737001149DE /* Main.storyboard */; };
 		CF03C4531E972737001149DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF03C4521E972737001149DE /* Assets.xcassets */; };
 		CF03C4561E972737001149DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF03C4541E972737001149DE /* LaunchScreen.storyboard */; };
+		CF20AAB51EBE6DB9002C5BD2 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CF20AAB31EBE6DB9002C5BD2 /* Model.xcdatamodeld */; };
+		CF20AABA1EBE7073002C5BD2 /* Place+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF20AAB61EBE7073002C5BD2 /* Place+CoreDataClass.swift */; };
+		CF20AABB1EBE7073002C5BD2 /* Place+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF20AAB71EBE7073002C5BD2 /* Place+CoreDataProperties.swift */; };
+		CF20AABC1EBE7073002C5BD2 /* Type+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF20AAB81EBE7073002C5BD2 /* Type+CoreDataClass.swift */; };
+		CF20AABD1EBE7073002C5BD2 /* Type+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF20AAB91EBE7073002C5BD2 /* Type+CoreDataProperties.swift */; };
+		CF20AABF1EBE71AD002C5BD2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF20AABE1EBE71AD002C5BD2 /* CoreDataStack.swift */; };
 		CF261B701EA0424B00AB5DB5 /* GoogleAPIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF261B6F1EA0424B00AB5DB5 /* GoogleAPIConstants.swift */; };
 		CF261B721EA0425F00AB5DB5 /* GoogleAPIMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF261B711EA0425F00AB5DB5 /* GoogleAPIMethods.swift */; };
 		CF261B741EA4452D00AB5DB5 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF261B731EA4452D00AB5DB5 /* Cell.swift */; };
@@ -42,6 +48,12 @@
 		CF03C4521E972737001149DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF03C4551E972737001149DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF03C4571E972737001149DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF20AAB41EBE6DB9002C5BD2 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		CF20AAB61EBE7073002C5BD2 /* Place+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Place+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CF20AAB71EBE7073002C5BD2 /* Place+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Place+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CF20AAB81EBE7073002C5BD2 /* Type+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Type+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CF20AAB91EBE7073002C5BD2 /* Type+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Type+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CF20AABE1EBE71AD002C5BD2 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		CF261B6F1EA0424B00AB5DB5 /* GoogleAPIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleAPIConstants.swift; sourceTree = "<group>"; };
 		CF261B711EA0425F00AB5DB5 /* GoogleAPIMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleAPIMethods.swift; sourceTree = "<group>"; };
 		CF261B731EA4452D00AB5DB5 /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
@@ -102,16 +114,21 @@
 				CF03C44B1E972737001149DE /* AppDelegate.swift */,
 				CF261B731EA4452D00AB5DB5 /* Cell.swift */,
 				CFAF7ECB1E9E942D000A3FCF /* Constants.swift */,
+				CF20AABE1EBE71AD002C5BD2 /* CoreDataStack.swift */,
 				CFC708C51EBAE698001CA87B /* DocumentViewController.swift */,
 				CF28C0351EAEE01A0042A0E6 /* GCDBlackBox.swift */,
 				CF261B6F1EA0424B00AB5DB5 /* GoogleAPIConstants.swift */,
 				CF261B711EA0425F00AB5DB5 /* GoogleAPIMethods.swift */,
 				CF9536931EB6BF8C0038FBDB /* GooglePlaces.swift */,
+				CF20AAB61EBE7073002C5BD2 /* Place+CoreDataClass.swift */,
+				CF20AAB71EBE7073002C5BD2 /* Place+CoreDataProperties.swift */,
 				CFF942CE1EAD7CDB003D9B7E /* PlaceMapViewController.swift */,
 				CF03C44D1E972737001149DE /* PlacesViewController.swift */,
 				CFF942CC1EAD7051003D9B7E /* PlaceTabBarController.swift */,
 				CFF942D01EAD7CF3003D9B7E /* PlaceTableViewController.swift */,
 				CFC708C31EBAE682001CA87B /* SettingViewController.swift */,
+				CF20AAB81EBE7073002C5BD2 /* Type+CoreDataClass.swift */,
+				CF20AAB91EBE7073002C5BD2 /* Type+CoreDataProperties.swift */,
 				CF68A9251E9D264A004A2B66 /* Roboto-Black.ttf */,
 				CF68A9261E9D264A004A2B66 /* Roboto-Bold.ttf */,
 				CF68A9271E9D264A004A2B66 /* Roboto-Light.ttf */,
@@ -121,6 +138,7 @@
 				CF03C4521E972737001149DE /* Assets.xcassets */,
 				CF03C4541E972737001149DE /* LaunchScreen.storyboard */,
 				CF03C44F1E972737001149DE /* Main.storyboard */,
+				CF20AAB31EBE6DB9002C5BD2 /* Model.xcdatamodeld */,
 			);
 			path = "On the Spot";
 			sourceTree = "<group>";
@@ -275,11 +293,17 @@
 			files = (
 				CFC708C61EBAE698001CA87B /* DocumentViewController.swift in Sources */,
 				CF03C44E1E972737001149DE /* PlacesViewController.swift in Sources */,
+				CF20AABC1EBE7073002C5BD2 /* Type+CoreDataClass.swift in Sources */,
+				CF20AABD1EBE7073002C5BD2 /* Type+CoreDataProperties.swift in Sources */,
 				CFF942CF1EAD7CDB003D9B7E /* PlaceMapViewController.swift in Sources */,
+				CF20AAB51EBE6DB9002C5BD2 /* Model.xcdatamodeld in Sources */,
 				CF03C44C1E972737001149DE /* AppDelegate.swift in Sources */,
+				CF20AABA1EBE7073002C5BD2 /* Place+CoreDataClass.swift in Sources */,
+				CF20AABF1EBE71AD002C5BD2 /* CoreDataStack.swift in Sources */,
 				CF261B721EA0425F00AB5DB5 /* GoogleAPIMethods.swift in Sources */,
 				CF9536941EB6BF8C0038FBDB /* GooglePlaces.swift in Sources */,
 				CF28C0361EAEE01B0042A0E6 /* GCDBlackBox.swift in Sources */,
+				CF20AABB1EBE7073002C5BD2 /* Place+CoreDataProperties.swift in Sources */,
 				CFAF7ECC1E9E942D000A3FCF /* Constants.swift in Sources */,
 				CFF942D11EAD7CF3003D9B7E /* PlaceTableViewController.swift in Sources */,
 				CF261B701EA0424B00AB5DB5 /* GoogleAPIConstants.swift in Sources */,
@@ -456,6 +480,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CF20AAB31EBE6DB9002C5BD2 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CF20AAB41EBE6DB9002C5BD2 /* Model.xcdatamodel */,
+			);
+			currentVersion = CF20AAB41EBE6DB9002C5BD2 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CF03C4401E972737001149DE /* Project object */;
 }
