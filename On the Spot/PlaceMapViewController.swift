@@ -29,6 +29,7 @@ class PlaceMapViewController: UIViewController {
     var latitudinalDistance: CLLocationDistance = CLLocationDistance()
     var longitudinalDistance: CLLocationDistance = CLLocationDistance()
     var circleCenter: CLLocationCoordinate2D = CLLocationCoordinate2D()
+    var zoomOnce: Bool = Bool()
     
     // MARK: Outlets
     @IBOutlet var mapView: GMSMapView!
@@ -42,15 +43,15 @@ class PlaceMapViewController: UIViewController {
         locationManager.delegate = self
         mapView.delegate = self
         mapView.clear()
+        zoomOnce = true
         
         setDefaults()
         initializeMap()
         initializeLocation()
         //initializeLocationMarker()
-        
         showCurrentLocation()
         displaySearchRadius()
-        setCameraZoom()
+        //setCameraZoom()
         displayPlaces()
     }
     
@@ -58,9 +59,17 @@ class PlaceMapViewController: UIViewController {
         
         super.viewWillAppear(animated)
         
+        // Initialize zoom
+        if (zoomOnce) {
+            setCameraZoom()
+            zoomOnce = false
+        }
+        
+        /*
         // Hide delete button
         PlaceTabBarController.deleteButton.image = UIImage(named: "Blank")
         PlaceTabBarController.deleteButton.isEnabled = false
+ */
     }
 
     override func didReceiveMemoryWarning() {

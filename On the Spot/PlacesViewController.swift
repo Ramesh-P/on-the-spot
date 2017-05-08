@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import CoreLocation
+import CoreData
 
 // MARK: PlacesViewController
 class PlacesViewController: UIViewController {
@@ -26,6 +27,8 @@ class PlacesViewController: UIViewController {
     var isFiltered: Bool = Bool()
     var filteredPlaces: [String] = [String]()
     //var refreshControl: UIRefreshControl = UIRefreshControl()
+    var type: Type?
+    var place: Place?
     
     // MARK: Outlets
     @IBOutlet weak var locationView: UIView!
@@ -105,9 +108,9 @@ class PlacesViewController: UIViewController {
         
         // Show places
         if (segue.identifier == "toPlaceTabBarController") {
-            _ = segue.destination as! PlaceTabBarController
+            let controller = segue.destination as! PlaceTabBarController
             let placeType = sender as! String
-            PlaceTabBarController.placeType = placeType
+            controller.placeType = placeType
         }
     }
 }
@@ -224,6 +227,45 @@ extension PlacesViewController {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
+    }
+}
+
+// MARK: extension PlacesViewController+Extension+CoreData
+extension PlacesViewController {
+    
+    func dropAllData(completion: @escaping (_ success: Bool, _ error: String?) -> Void) {
+        
+        // Delete all stored data from core data store
+        do {
+            try self.appDelegate.stack.dropAllData()
+        } catch {
+            completion(false, "Error deleting saved results")
+        }
+
+        completion(true, nil)
+    }
+    
+    func saveType(placeType name: String, completion: @escaping (_ result: Type?) -> Void) {
+        
+        // Save type detail to data store
+        type = Type(name: name, context: appDelegate.stack.context)
+        appDelegate.stack.saveContext()
+        
+        completion(type)
+    }
+    
+    func savePlace(_ type: Type, completion: @escaping (_ result: Type?) -> Void) {
+        
+        // Save places for selected type into the data store
+        let places = appDelegate.googlePlaces
+        
+        for item in places {
+            place = Place(name: item.name, address: item.address, isOpen: item.isOpen, rating: item.rating, context: appDelegate.stack.context)
+            place?.type = type
+            appDelegate.stack.saveContext()
+        }
+        
+        completion(type)
     }
 }
 
@@ -403,9 +445,34 @@ extension PlacesViewController: UICollectionViewDataSource, UICollectionViewDele
                 self.searchBar.resignFirstResponder()
                 self.searchBarCancelButtonClicked(self.searchBar)
                 
-                // Display places or error
                 if success {
-                    self.performSegue(withIdentifier: "toPlaceTabBarController", sender: placeType)
+                    
+                    // Delete previously saved type & places from the data store
+                    self.dropAllData() { (success, error) in
+                        if success {
+                            
+                            // Save newly selected type into the data store
+                            self.saveType(placeType: placeType) { (result) in
+                                if (result != nil) {
+                                    
+                                    // Save places for selected type into the data store
+                                    self.savePlace(result!) { (result) in
+                                        if (result != nil) {
+                                            
+                                            // Display places
+                                            self.performSegue(withIdentifier: "toPlaceTabBarController", sender: placeType)
+                                        } else {
+                                            self.displayError("Error saving search result")
+                                        }
+                                    }
+                                } else {
+                                    self.displayError("Error saving search result")
+                                }
+                            }
+                        } else {
+                            self.displayError(error)
+                        }
+                    }
                 } else {
                     var errorMessage: String = error!
                     

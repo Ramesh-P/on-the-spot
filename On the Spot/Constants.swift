@@ -21,6 +21,13 @@ struct Constants {
         static let phonePlus: CGFloat = 736.0
     }
     
+    // MARK: Table Row Height
+    struct RowHeight {
+        static let phoneSE: CGFloat = 72.0
+        static let phone: CGFloat = 84.0
+        static let phonePlus: CGFloat = 93.0
+    }
+    
     // MARK: Font Size
     struct FontSize {
         struct Title {
@@ -54,6 +61,26 @@ struct Constants {
                 static let phoneSE: CGFloat = 11.0
                 static let phone: CGFloat = 13.0
                 static let phonePlus: CGFloat = 14.0
+            }
+            
+            struct Medium {
+                static let phoneSE: CGFloat = 12.0
+                static let phone: CGFloat = 14.0
+                static let phonePlus: CGFloat = 15.0
+            }
+            
+            struct Large {
+                static let phoneSE: CGFloat = 13.0
+                static let phone: CGFloat = 15.0
+                static let phonePlus: CGFloat = 16.0
+            }
+        }
+        
+        struct PlaceTable {
+            struct Small {
+                static let phoneSE: CGFloat = 10.0
+                static let phone: CGFloat = 12.0
+                static let phonePlus: CGFloat = 13.0
             }
             
             struct Medium {

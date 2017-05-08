@@ -13,6 +13,7 @@
 		CF03C4511E972737001149DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF03C44F1E972737001149DE /* Main.storyboard */; };
 		CF03C4531E972737001149DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF03C4521E972737001149DE /* Assets.xcassets */; };
 		CF03C4561E972737001149DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF03C4541E972737001149DE /* LaunchScreen.storyboard */; };
+		CF16D4091EBFAE4A0010F9F6 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF16D4081EBFAE4A0010F9F6 /* Row.swift */; };
 		CF20AAB51EBE6DB9002C5BD2 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CF20AAB31EBE6DB9002C5BD2 /* Model.xcdatamodeld */; };
 		CF20AABA1EBE7073002C5BD2 /* Place+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF20AAB61EBE7073002C5BD2 /* Place+CoreDataClass.swift */; };
 		CF20AABB1EBE7073002C5BD2 /* Place+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF20AAB71EBE7073002C5BD2 /* Place+CoreDataProperties.swift */; };
@@ -48,6 +49,7 @@
 		CF03C4521E972737001149DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF03C4551E972737001149DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF03C4571E972737001149DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF16D4081EBFAE4A0010F9F6 /* Row.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
 		CF20AAB41EBE6DB9002C5BD2 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		CF20AAB61EBE7073002C5BD2 /* Place+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Place+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CF20AAB71EBE7073002C5BD2 /* Place+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Place+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				CF03C44D1E972737001149DE /* PlacesViewController.swift */,
 				CFF942CC1EAD7051003D9B7E /* PlaceTabBarController.swift */,
 				CFF942D01EAD7CF3003D9B7E /* PlaceTableViewController.swift */,
+				CF16D4081EBFAE4A0010F9F6 /* Row.swift */,
 				CFC708C31EBAE682001CA87B /* SettingViewController.swift */,
 				CF20AAB81EBE7073002C5BD2 /* Type+CoreDataClass.swift */,
 				CF20AAB91EBE7073002C5BD2 /* Type+CoreDataProperties.swift */,
@@ -299,6 +302,7 @@
 				CF20AAB51EBE6DB9002C5BD2 /* Model.xcdatamodeld in Sources */,
 				CF03C44C1E972737001149DE /* AppDelegate.swift in Sources */,
 				CF20AABA1EBE7073002C5BD2 /* Place+CoreDataClass.swift in Sources */,
+				CF16D4091EBFAE4A0010F9F6 /* Row.swift in Sources */,
 				CF20AABF1EBE71AD002C5BD2 /* CoreDataStack.swift in Sources */,
 				CF261B721EA0425F00AB5DB5 /* GoogleAPIMethods.swift in Sources */,
 				CF9536941EB6BF8C0038FBDB /* GooglePlaces.swift in Sources */,
