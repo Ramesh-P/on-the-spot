@@ -97,6 +97,7 @@ class PlacesViewController: UIViewController {
         
         // Stop observing
         locationManager.stopUpdatingLocation()
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
     
     override func didReceiveMemoryWarning() {
@@ -222,6 +223,8 @@ extension PlacesViewController {
     }
     
     func displayError(_ message: String?) {
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
         
         // Display Error
         let alert = UIAlertController(title: nil, message: message, preferredStyle: UIAlertControllerStyle.alert)

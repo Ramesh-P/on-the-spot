@@ -14,6 +14,13 @@ struct Constants {
     
     static let metersPerMile = 1609.34
     
+    // MARK: Device
+    struct Device {
+        static let phoneSE = "phoneSE"
+        static let phone = "phone"
+        static let phonePlus = "phonePlus"
+    }
+    
     // MARK: Screen Height
     struct ScreenHeight {
         static let phoneSE: CGFloat = 568.0

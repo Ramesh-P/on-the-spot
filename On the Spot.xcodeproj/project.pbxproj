@@ -35,6 +35,7 @@
 		CFAF7ECC1E9E942D000A3FCF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAF7ECB1E9E942D000A3FCF /* Constants.swift */; };
 		CFC708C41EBAE682001CA87B /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC708C31EBAE682001CA87B /* SettingViewController.swift */; };
 		CFC708C61EBAE698001CA87B /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC708C51EBAE698001CA87B /* DocumentViewController.swift */; };
+		CFD374011EC0EF22002A71C1 /* Legal.html in Resources */ = {isa = PBXBuildFile; fileRef = CFD374001EC0EF22002A71C1 /* Legal.html */; };
 		CFF942CD1EAD7051003D9B7E /* PlaceTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF942CC1EAD7051003D9B7E /* PlaceTabBarController.swift */; };
 		CFF942CF1EAD7CDB003D9B7E /* PlaceMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF942CE1EAD7CDB003D9B7E /* PlaceMapViewController.swift */; };
 		CFF942D11EAD7CF3003D9B7E /* PlaceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF942D01EAD7CF3003D9B7E /* PlaceTableViewController.swift */; };
@@ -71,6 +72,7 @@
 		CFAF7ECB1E9E942D000A3FCF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CFC708C31EBAE682001CA87B /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		CFC708C51EBAE698001CA87B /* DocumentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentViewController.swift; sourceTree = "<group>"; };
+		CFD374001EC0EF22002A71C1 /* Legal.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Legal.html; sourceTree = "<group>"; };
 		CFF942CC1EAD7051003D9B7E /* PlaceTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTabBarController.swift; sourceTree = "<group>"; };
 		CFF942CE1EAD7CDB003D9B7E /* PlaceMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceMapViewController.swift; sourceTree = "<group>"; };
 		CFF942D01EAD7CF3003D9B7E /* PlaceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTableViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 		CF03C44A1E972737001149DE /* On the Spot */ = {
 			isa = PBXGroup;
 			children = (
+				CFD374001EC0EF22002A71C1 /* Legal.html */,
 				CF03C4571E972737001149DE /* Info.plist */,
 				CF03C44B1E972737001149DE /* AppDelegate.swift */,
 				CF261B731EA4452D00AB5DB5 /* Cell.swift */,
@@ -227,6 +230,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFD374011EC0EF22002A71C1 /* Legal.html in Resources */,
 				CF03C4561E972737001149DE /* LaunchScreen.storyboard in Resources */,
 				CF03C4531E972737001149DE /* Assets.xcassets in Resources */,
 				CF68A92F1E9D264A004A2B66 /* Roboto-Regular.ttf in Resources */,

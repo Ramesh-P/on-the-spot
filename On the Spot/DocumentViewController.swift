@@ -14,11 +14,12 @@ class DocumentViewController: UIViewController {
     
     // MARK: Properties
     var documentName: String = String()
+    var documentTitle: String = String()
     var titleFontSize: CGFloat = CGFloat()
+    var device: String = String()
     
     // MARK: Outlets
-    
-    // MARK: Actions
+    @IBOutlet weak var webView: UIWebView!
     
     // MARK: Overrides
     override func viewDidLoad() {
@@ -26,8 +27,20 @@ class DocumentViewController: UIViewController {
         super.viewDidLoad()
         
         // Initialize
-        getFontSize()
+        webView.delegate = self
+        
+        // Layout
+        getDefaultSize()
         displayTitle()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+        // Layout
+        displayDocument(documentName)
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,18 +53,21 @@ class DocumentViewController: UIViewController {
 extension DocumentViewController {
     
     // MARK: Class Functions
-    func getFontSize() {
+    func getDefaultSize() {
         
         // Get screen height
         let screenHeight = UIScreen.main.bounds.size.height
         
-        // Get font size
+        // Get current device & title font size
         switch screenHeight {
         case Constants.ScreenHeight.phoneSE:
+            device = Constants.Device.phoneSE
             titleFontSize = Constants.FontSize.Title.phoneSE
         case Constants.ScreenHeight.phone:
+            device = Constants.Device.phone
             titleFontSize = Constants.FontSize.Title.phone
         case Constants.ScreenHeight.phonePlus:
+            device = Constants.Device.phonePlus
             titleFontSize = Constants.FontSize.Title.phonePlus
         default:
             break
@@ -64,12 +80,69 @@ extension DocumentViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Roboto-Medium", size: titleFontSize)!]
         
         if (documentName == "Credit") {
-            self.title = "Acknowledgements & Credits"
+            documentTitle = "Acknowledgements & Credits"
         } else if (documentName == "Help") {
-            self.title = "User Guide"
+            documentTitle = "User Guide"
         } else if (documentName == "Legal") {
-            self.title = "Terms and Conditions"
+            documentTitle = "Terms and Conditions"
         }
+        
+        self.title = documentTitle
+    }
+    
+    func displayDocument(_ name: String) {
+        
+        let filePath = Bundle.main.url(forResource: name, withExtension: "html")
+        let parameter = "?device=\(device)"
+        let url = NSURL(string: parameter, relativeTo: filePath)
+        
+        // Display document
+        webView.loadRequest(NSURLRequest(url: url! as URL) as URLRequest)
+    }
+    
+    func displayError(_ message: String?) {
+        
+        // Display Error
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+}
+
+// MARK: DocumentViewController: UIWebViewDelegate
+extension DocumentViewController: UIWebViewDelegate {
+    
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        
+        // Open link in Safari
+        switch navigationType {
+        case .linkClicked:
+            UIApplication.shared.open(request.url!, options: [:], completionHandler: nil)
+            return false
+        default:
+            return true
+        }
+    }
+    
+    /*
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+ */
+    
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+    
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        
+        // Display error
+        let message = "Unable to display \(documentTitle.lowercased())"
+        displayError(message)
     }
 }
 

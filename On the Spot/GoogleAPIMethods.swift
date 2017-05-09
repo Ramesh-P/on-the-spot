@@ -68,6 +68,8 @@ class GoogleAPIMethods: NSObject {
     
     func fetchNearbyPlaces(of type: String, for location: String, completionHandlerForFetchPlaces: @escaping (_ success: Bool, _ error: String?) -> Void) {
         
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
         // Step-1: Set the parameters
         var parameters: [String:Any] = [
             Google.ParameterKeys.type: type,
