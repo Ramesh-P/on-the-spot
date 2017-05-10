@@ -37,6 +37,7 @@
 		CFC708C61EBAE698001CA87B /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC708C51EBAE698001CA87B /* DocumentViewController.swift */; };
 		CFD374011EC0EF22002A71C1 /* Legal.html in Resources */ = {isa = PBXBuildFile; fileRef = CFD374001EC0EF22002A71C1 /* Legal.html */; };
 		CFD374031EC18E12002A71C1 /* Credit.html in Resources */ = {isa = PBXBuildFile; fileRef = CFD374021EC18E12002A71C1 /* Credit.html */; };
+		CFD374051EC25ECE002A71C1 /* Help.html in Resources */ = {isa = PBXBuildFile; fileRef = CFD374041EC25ECE002A71C1 /* Help.html */; };
 		CFF942CD1EAD7051003D9B7E /* PlaceTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF942CC1EAD7051003D9B7E /* PlaceTabBarController.swift */; };
 		CFF942CF1EAD7CDB003D9B7E /* PlaceMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF942CE1EAD7CDB003D9B7E /* PlaceMapViewController.swift */; };
 		CFF942D11EAD7CF3003D9B7E /* PlaceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF942D01EAD7CF3003D9B7E /* PlaceTableViewController.swift */; };
@@ -75,6 +76,7 @@
 		CFC708C51EBAE698001CA87B /* DocumentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentViewController.swift; sourceTree = "<group>"; };
 		CFD374001EC0EF22002A71C1 /* Legal.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Legal.html; sourceTree = "<group>"; };
 		CFD374021EC18E12002A71C1 /* Credit.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Credit.html; sourceTree = "<group>"; };
+		CFD374041EC25ECE002A71C1 /* Help.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Help.html; sourceTree = "<group>"; };
 		CFF942CC1EAD7051003D9B7E /* PlaceTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTabBarController.swift; sourceTree = "<group>"; };
 		CFF942CE1EAD7CDB003D9B7E /* PlaceMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceMapViewController.swift; sourceTree = "<group>"; };
 		CFF942D01EAD7CF3003D9B7E /* PlaceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTableViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				CFD374021EC18E12002A71C1 /* Credit.html */,
+				CFD374041EC25ECE002A71C1 /* Help.html */,
 				CFD374001EC0EF22002A71C1 /* Legal.html */,
 				CF03C4571E972737001149DE /* Info.plist */,
 				CF03C44B1E972737001149DE /* AppDelegate.swift */,
@@ -242,6 +245,7 @@
 				CF68A92E1E9D264A004A2B66 /* Roboto-Medium.ttf in Resources */,
 				CF68A92C1E9D264A004A2B66 /* Roboto-Bold.ttf in Resources */,
 				CF03C4511E972737001149DE /* Main.storyboard in Resources */,
+				CFD374051EC25ECE002A71C1 /* Help.html in Resources */,
 				CF68A92B1E9D264A004A2B66 /* Roboto-Black.ttf in Resources */,
 				CF68A9301E9D264A004A2B66 /* Roboto-Thin.ttf in Resources */,
 			);

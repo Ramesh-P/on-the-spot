@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+            <title>Legal</title>
+            <style>
+                body {
+                    font-family: Roboto;
+                    font-weight: 500;
+                    color: rgb(57, 57, 67);
+                }
+            .phoneSE h1 {
+                font-size: 13px;
+            }
+            .phoneSE h2 {
+                font-size: 12px;
+            }
+            .phoneSE p {
+                font-size: 12px;
+                font-weight: 400;
+            }
+            .phone h1 {
+                font-size: 15px;
+            }
+            .phone h2 {
+                font-size: 14px;
+            }
+            .phone p {
+                font-size: 14px;
+                font-weight: 400;
+            }
+            .phonePlus h1 {
+                font-size: 16px;
+            }
+            .phonePlus h2 {
+                font-size: 15px;
+            }
+            .phonePlus p {
+                font-size: 15px;
+                font-weight: 400;
+            }
+            </style>
+            </head>
+    
+    <body id="body">
+        <h1>All Places</h1>
+        <p>On the Spot starts with this screen. In this screen, you can view your current location both as address and as coordinates. Your location data is continually updated as you move.</p>
+        <p>An alphabetic list of 90 place types are presented in tiles.  You can either scroll through this list and choose a place type directly or alternatively enter the place type in the search bar above.</p>
+        <p>When you enter the place type in the search bar, the list narrows down as you type. This helps you find the place type quickly.</p>
+        
+        <h1>Selected Places Map</h1>
+        <p>When you select a place type, On the Spot will download a list of 20 places of that type from Google Places &#174; and plot them in a map centered to your current location. By tapping on each pin you can find the name and address of the place associated with that pin.</p>
+        <p>You can specify how places are searched by setting the options. Details of which are described in the <i>settings</i> section below.</p>
+        <p>In the same map, On the Spot will also plot and track in real-time your current location. So you will always know where your are relative to your destination.</p>
+        <p>You can zoom and scroll the map just as normal. When you tap the <strong><i>my location</i></strong> button on the bottom right of the screen, On the Spot will reset the zoom and redraw the map centered to your new current location.</p>
+        <p>From this screen you will be able to toggle between the map view and the list view which is described in the next section.</p>
+        
+        <h1>Selected Places List</h1>
+        <p>In this screen, the same 20 places of the selected type are displayed as a list.</p>
+        <p>Along with name and address of each place, additional information such as rating and if the place is currently open or not is also available.</p>
+        <p>For your offline use, this list is saved in the memory and will be retained until your next search. You don't need network connection to access the saved list. You can access it through the <strong><i>saved places</i></strong> button on the top right of the <i>all places</i> screen.</p>
+        <p>From the list view or from the map view, you can go back to the <i>all places</i> screen at anytime by selecting the <strong><i>back</i></strong> button from the top left of the screen.</p>
+        
+        <h1>Settings</h1>
+        <p>In the settings screen you can set your search preferences. Your preferences are saved in the memory and will be retained until you change them.</p>
+        <p>You can access the settings screen through the <strong><i>menu</i></strong> button on the top left of the <i>all places</i> screen.</p>
+        <p>Select <strong><i>nearby</i></strong>, if you want to find places based on their distance to your current location and not by their ranking. When nearby is selected, you cannot specify the search radius.</p>
+        <p>Select <strong><i>distance</i></strong>, if you want to search places based on their ranking and not by their distance to your current location. When distance is selected, you must also specify the search radius. Places will be searched only within the search radius you specify.</p>
+        <p>Google &#174; determines ranking of a place based on its relevance, distance, and prominence. Hence ranking is not the same as the public’s rating for that place.</p>
+        <p>Select the <strong><i>cancel</i></strong> button at the top right of the screen to exit the settings screen.</p>
+        
+        <p>Google &#174; and Google Places &#174; are registered trademarks of Google Inc.</p>
+        <script>
+            document.body.className =
+                window.location.search.substring(
+                window.location.search.indexOf("=") + 1
+            );
+        </script>
+    </body>
+</html>
+
