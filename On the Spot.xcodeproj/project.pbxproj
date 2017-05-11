@@ -118,41 +118,97 @@
 		CF03C44A1E972737001149DE /* On the Spot */ = {
 			isa = PBXGroup;
 			children = (
-				CFD374021EC18E12002A71C1 /* Credit.html */,
-				CFD374041EC25ECE002A71C1 /* Help.html */,
-				CFD374001EC0EF22002A71C1 /* Legal.html */,
+				CFA251E41EC3FE6E00DEAF47 /* Assets */,
+				CFA251E31EC3FE6600DEAF47 /* MVC (Model) */,
+				CFA251E21EC3FE5B00DEAF47 /* MVC (View) */,
+				CFA251E11EC3FE5200DEAF47 /* MVC (Controller) */,
+				CFA251E01EC3FE4300DEAF47 /* Supporting Files */,
 				CF03C4571E972737001149DE /* Info.plist */,
 				CF03C44B1E972737001149DE /* AppDelegate.swift */,
-				CF261B731EA4452D00AB5DB5 /* Cell.swift */,
-				CFAF7ECB1E9E942D000A3FCF /* Constants.swift */,
-				CF20AABE1EBE71AD002C5BD2 /* CoreDataStack.swift */,
+			);
+			path = "On the Spot";
+			sourceTree = "<group>";
+		};
+		CFA251E01EC3FE4300DEAF47 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CFA251E51EC3FE7F00DEAF47 /* Fonts */,
+				CFA251E61EC3FEB600DEAF47 /* HTML */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CFA251E11EC3FE5200DEAF47 /* MVC (Controller) */ = {
+			isa = PBXGroup;
+			children = (
 				CFC708C51EBAE698001CA87B /* DocumentViewController.swift */,
-				CF28C0351EAEE01A0042A0E6 /* GCDBlackBox.swift */,
-				CF261B6F1EA0424B00AB5DB5 /* GoogleAPIConstants.swift */,
-				CF261B711EA0425F00AB5DB5 /* GoogleAPIMethods.swift */,
-				CF9536931EB6BF8C0038FBDB /* GooglePlaces.swift */,
-				CF20AAB61EBE7073002C5BD2 /* Place+CoreDataClass.swift */,
-				CF20AAB71EBE7073002C5BD2 /* Place+CoreDataProperties.swift */,
 				CFF942CE1EAD7CDB003D9B7E /* PlaceMapViewController.swift */,
 				CF03C44D1E972737001149DE /* PlacesViewController.swift */,
 				CFF942CC1EAD7051003D9B7E /* PlaceTabBarController.swift */,
 				CFF942D01EAD7CF3003D9B7E /* PlaceTableViewController.swift */,
-				CF16D4081EBFAE4A0010F9F6 /* Row.swift */,
 				CFC708C31EBAE682001CA87B /* SettingViewController.swift */,
+			);
+			name = "MVC (Controller)";
+			sourceTree = "<group>";
+		};
+		CFA251E21EC3FE5B00DEAF47 /* MVC (View) */ = {
+			isa = PBXGroup;
+			children = (
+				CF261B731EA4452D00AB5DB5 /* Cell.swift */,
+				CF16D4081EBFAE4A0010F9F6 /* Row.swift */,
+			);
+			name = "MVC (View)";
+			sourceTree = "<group>";
+		};
+		CFA251E31EC3FE6600DEAF47 /* MVC (Model) */ = {
+			isa = PBXGroup;
+			children = (
+				CFAF7ECB1E9E942D000A3FCF /* Constants.swift */,
+				CF20AABE1EBE71AD002C5BD2 /* CoreDataStack.swift */,
+				CF28C0351EAEE01A0042A0E6 /* GCDBlackBox.swift */,
+				CF261B6F1EA0424B00AB5DB5 /* GoogleAPIConstants.swift */,
+				CF261B711EA0425F00AB5DB5 /* GoogleAPIMethods.swift */,
+				CF9536931EB6BF8C0038FBDB /* GooglePlaces.swift */,
+				CF20AAB31EBE6DB9002C5BD2 /* Model.xcdatamodeld */,
+				CF20AAB61EBE7073002C5BD2 /* Place+CoreDataClass.swift */,
+				CF20AAB71EBE7073002C5BD2 /* Place+CoreDataProperties.swift */,
 				CF20AAB81EBE7073002C5BD2 /* Type+CoreDataClass.swift */,
 				CF20AAB91EBE7073002C5BD2 /* Type+CoreDataProperties.swift */,
+			);
+			name = "MVC (Model)";
+			sourceTree = "<group>";
+		};
+		CFA251E41EC3FE6E00DEAF47 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				CF03C4521E972737001149DE /* Assets.xcassets */,
+				CF03C4541E972737001149DE /* LaunchScreen.storyboard */,
+				CF03C44F1E972737001149DE /* Main.storyboard */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		CFA251E51EC3FE7F00DEAF47 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
 				CF68A9251E9D264A004A2B66 /* Roboto-Black.ttf */,
 				CF68A9261E9D264A004A2B66 /* Roboto-Bold.ttf */,
 				CF68A9271E9D264A004A2B66 /* Roboto-Light.ttf */,
 				CF68A9281E9D264A004A2B66 /* Roboto-Medium.ttf */,
 				CF68A9291E9D264A004A2B66 /* Roboto-Regular.ttf */,
 				CF68A92A1E9D264A004A2B66 /* Roboto-Thin.ttf */,
-				CF03C4521E972737001149DE /* Assets.xcassets */,
-				CF03C4541E972737001149DE /* LaunchScreen.storyboard */,
-				CF03C44F1E972737001149DE /* Main.storyboard */,
-				CF20AAB31EBE6DB9002C5BD2 /* Model.xcdatamodeld */,
 			);
-			path = "On the Spot";
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		CFA251E61EC3FEB600DEAF47 /* HTML */ = {
+			isa = PBXGroup;
+			children = (
+				CFD374021EC18E12002A71C1 /* Credit.html */,
+				CFD374041EC25ECE002A71C1 /* Help.html */,
+				CFD374001EC0EF22002A71C1 /* Legal.html */,
+			);
+			name = HTML;
 			sourceTree = "<group>";
 		};
 		D31222FCD41E79A663C83D86 /* Frameworks */ = {
