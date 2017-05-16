@@ -1,4 +1,5 @@
 # On the Spot
+![Logo](https://raw.githubusercontent.com/Ramesh-P/on-the-spot/master/On%20the%20Spot/Assets.xcassets/AppIcon.appiconset/Icon-60%403x.png)
 
 ## Overview
 You are looking for a gas station, a parking space, a medical store, a café, or a workshop to repair your car, but the issue is that you are new to that place and you don’t know if there are any, or if so, where they are.
