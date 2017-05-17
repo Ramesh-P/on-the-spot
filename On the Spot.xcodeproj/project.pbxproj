@@ -38,6 +38,8 @@
 		CFB9FCC91ECBEC620019C97D /* PlacesViewController+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB9FCC81ECBEC620019C97D /* PlacesViewController+Helper.swift */; };
 		CFB9FCCB1ECBED550019C97D /* PlacesViewController+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB9FCCA1ECBED550019C97D /* PlacesViewController+CoreData.swift */; };
 		CFB9FCCD1ECBEEC00019C97D /* PlaceTabBarController+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB9FCCC1ECBEEC00019C97D /* PlaceTabBarController+Helper.swift */; };
+		CFB9FCCF1ECC05090019C97D /* PlaceTableViewController+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB9FCCE1ECC05090019C97D /* PlaceTableViewController+Helper.swift */; };
+		CFB9FCD11ECC05F20019C97D /* SettingViewController+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB9FCD01ECC05F20019C97D /* SettingViewController+Helper.swift */; };
 		CFC708C41EBAE682001CA87B /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC708C31EBAE682001CA87B /* SettingViewController.swift */; };
 		CFC708C61EBAE698001CA87B /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC708C51EBAE698001CA87B /* DocumentViewController.swift */; };
 		CFD374011EC0EF22002A71C1 /* Legal.html in Resources */ = {isa = PBXBuildFile; fileRef = CFD374001EC0EF22002A71C1 /* Legal.html */; };
@@ -82,6 +84,8 @@
 		CFB9FCC81ECBEC620019C97D /* PlacesViewController+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PlacesViewController+Helper.swift"; sourceTree = "<group>"; };
 		CFB9FCCA1ECBED550019C97D /* PlacesViewController+CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PlacesViewController+CoreData.swift"; sourceTree = "<group>"; };
 		CFB9FCCC1ECBEEC00019C97D /* PlaceTabBarController+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PlaceTabBarController+Helper.swift"; sourceTree = "<group>"; };
+		CFB9FCCE1ECC05090019C97D /* PlaceTableViewController+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PlaceTableViewController+Helper.swift"; sourceTree = "<group>"; };
+		CFB9FCD01ECC05F20019C97D /* SettingViewController+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SettingViewController+Helper.swift"; sourceTree = "<group>"; };
 		CFC708C31EBAE682001CA87B /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		CFC708C51EBAE698001CA87B /* DocumentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentViewController.swift; sourceTree = "<group>"; };
 		CFD374001EC0EF22002A71C1 /* Legal.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Legal.html; sourceTree = "<group>"; };
@@ -161,7 +165,9 @@
 				CFF942CC1EAD7051003D9B7E /* PlaceTabBarController.swift */,
 				CFB9FCCC1ECBEEC00019C97D /* PlaceTabBarController+Helper.swift */,
 				CFF942D01EAD7CF3003D9B7E /* PlaceTableViewController.swift */,
+				CFB9FCCE1ECC05090019C97D /* PlaceTableViewController+Helper.swift */,
 				CFC708C31EBAE682001CA87B /* SettingViewController.swift */,
+				CFB9FCD01ECC05F20019C97D /* SettingViewController+Helper.swift */,
 			);
 			name = "MVC (Controller)";
 			sourceTree = "<group>";
@@ -378,8 +384,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFC708C61EBAE698001CA87B /* DocumentViewController.swift in Sources */,
+				CFB9FCD11ECC05F20019C97D /* SettingViewController+Helper.swift in Sources */,
 				CFB9FCC71ECBEA910019C97D /* PlaceMapViewController+Helper.swift in Sources */,
 				CF03C44E1E972737001149DE /* PlacesViewController.swift in Sources */,
+				CFB9FCCF1ECC05090019C97D /* PlaceTableViewController+Helper.swift in Sources */,
 				CF20AABC1EBE7073002C5BD2 /* Type+CoreDataClass.swift in Sources */,
 				CF20AABD1EBE7073002C5BD2 /* Type+CoreDataProperties.swift in Sources */,
 				CFF942CF1EAD7CDB003D9B7E /* PlaceMapViewController.swift in Sources */,
