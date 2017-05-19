@@ -79,5 +79,14 @@ Select the **cancel** button at the top right of the screen to exit the settings
 * [Ramesh Parthasarathy](mailto:msg.rameshp@gmail.com)
 
 ## License
+On the Spot is licensed under [MIT License](https://github.com/Ramesh-P/on-the-spot/blob/master/LICENSE)
 
 ## Credits
+On the Spot uses:
+* Google Maps SDK for iOS by Google Inc.
+* Google Places API Web Services by Google Inc.
+* SwiftyJSON
+* Icons from Map Icons
+* Icons from FlatIcon
+
+Attributions can be found on the Acknowledgements & Credits screen within the app
