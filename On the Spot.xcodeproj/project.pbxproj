@@ -49,6 +49,8 @@
 		CFD374051EC25ECE002A71C1 /* Help.html in Resources */ = {isa = PBXBuildFile; fileRef = CFD374041EC25ECE002A71C1 /* Help.html */; };
 		CFDB74861ED3D59B001A1730 /* DocumentViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDB74851ED3D59B001A1730 /* DocumentViewController+Delegate.swift */; };
 		CFDB74881ED3D6BA001A1730 /* PlaceMapViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDB74871ED3D6BA001A1730 /* PlaceMapViewController+Delegate.swift */; };
+		CFDB748A1ED447C1001A1730 /* PlacesViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDB74891ED447C1001A1730 /* PlacesViewController+Delegate.swift */; };
+		CFDB748C1ED448DE001A1730 /* PlaceTabBarController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDB748B1ED448DE001A1730 /* PlaceTabBarController+Delegate.swift */; };
 		CFF942CD1EAD7051003D9B7E /* PlaceTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF942CC1EAD7051003D9B7E /* PlaceTabBarController.swift */; };
 		CFF942CF1EAD7CDB003D9B7E /* PlaceMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF942CE1EAD7CDB003D9B7E /* PlaceMapViewController.swift */; };
 		CFF942D11EAD7CF3003D9B7E /* PlaceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF942D01EAD7CF3003D9B7E /* PlaceTableViewController.swift */; };
@@ -99,6 +101,8 @@
 		CFD374041EC25ECE002A71C1 /* Help.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Help.html; sourceTree = "<group>"; };
 		CFDB74851ED3D59B001A1730 /* DocumentViewController+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DocumentViewController+Delegate.swift"; sourceTree = "<group>"; };
 		CFDB74871ED3D6BA001A1730 /* PlaceMapViewController+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PlaceMapViewController+Delegate.swift"; sourceTree = "<group>"; };
+		CFDB74891ED447C1001A1730 /* PlacesViewController+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PlacesViewController+Delegate.swift"; sourceTree = "<group>"; };
+		CFDB748B1ED448DE001A1730 /* PlaceTabBarController+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PlaceTabBarController+Delegate.swift"; sourceTree = "<group>"; };
 		CFF942CC1EAD7051003D9B7E /* PlaceTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTabBarController.swift; sourceTree = "<group>"; };
 		CFF942CE1EAD7CDB003D9B7E /* PlaceMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceMapViewController.swift; sourceTree = "<group>"; };
 		CFF942D01EAD7CF3003D9B7E /* PlaceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTableViewController.swift; sourceTree = "<group>"; };
@@ -172,8 +176,10 @@
 				CF03C44D1E972737001149DE /* PlacesViewController.swift */,
 				CFB9FCCA1ECBED550019C97D /* PlacesViewController+CoreData.swift */,
 				CFB0C9361ED3C8D200672AE3 /* PlacesViewController+DataSource.swift */,
+				CFDB74891ED447C1001A1730 /* PlacesViewController+Delegate.swift */,
 				CFB9FCC81ECBEC620019C97D /* PlacesViewController+Helper.swift */,
 				CFF942CC1EAD7051003D9B7E /* PlaceTabBarController.swift */,
+				CFDB748B1ED448DE001A1730 /* PlaceTabBarController+Delegate.swift */,
 				CFB9FCCC1ECBEEC00019C97D /* PlaceTabBarController+Helper.swift */,
 				CFF942D01EAD7CF3003D9B7E /* PlaceTableViewController.swift */,
 				CFB0C9381ED3CA3E00672AE3 /* PlaceTableViewController+DataSource.swift */,
@@ -395,6 +401,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFDB748C1ED448DE001A1730 /* PlaceTabBarController+Delegate.swift in Sources */,
 				CFC708C61EBAE698001CA87B /* DocumentViewController.swift in Sources */,
 				CFB9FCD11ECC05F20019C97D /* SettingViewController+Helper.swift in Sources */,
 				CFB9FCC71ECBEA910019C97D /* PlaceMapViewController+Helper.swift in Sources */,
@@ -414,6 +421,7 @@
 				CFB9FCC91ECBEC620019C97D /* PlacesViewController+Helper.swift in Sources */,
 				CF20AABF1EBE71AD002C5BD2 /* CoreDataStack.swift in Sources */,
 				CFDB74861ED3D59B001A1730 /* DocumentViewController+Delegate.swift in Sources */,
+				CFDB748A1ED447C1001A1730 /* PlacesViewController+Delegate.swift in Sources */,
 				CF261B721EA0425F00AB5DB5 /* GoogleAPIMethods.swift in Sources */,
 				CF9536941EB6BF8C0038FBDB /* GooglePlaces.swift in Sources */,
 				CF28C0361EAEE01B0042A0E6 /* GCDBlackBox.swift in Sources */,
