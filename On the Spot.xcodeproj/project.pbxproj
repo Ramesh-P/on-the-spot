@@ -47,6 +47,8 @@
 		CFD374011EC0EF22002A71C1 /* Legal.html in Resources */ = {isa = PBXBuildFile; fileRef = CFD374001EC0EF22002A71C1 /* Legal.html */; };
 		CFD374031EC18E12002A71C1 /* Credit.html in Resources */ = {isa = PBXBuildFile; fileRef = CFD374021EC18E12002A71C1 /* Credit.html */; };
 		CFD374051EC25ECE002A71C1 /* Help.html in Resources */ = {isa = PBXBuildFile; fileRef = CFD374041EC25ECE002A71C1 /* Help.html */; };
+		CFDB74861ED3D59B001A1730 /* DocumentViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDB74851ED3D59B001A1730 /* DocumentViewController+Delegate.swift */; };
+		CFDB74881ED3D6BA001A1730 /* PlaceMapViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDB74871ED3D6BA001A1730 /* PlaceMapViewController+Delegate.swift */; };
 		CFF942CD1EAD7051003D9B7E /* PlaceTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF942CC1EAD7051003D9B7E /* PlaceTabBarController.swift */; };
 		CFF942CF1EAD7CDB003D9B7E /* PlaceMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF942CE1EAD7CDB003D9B7E /* PlaceMapViewController.swift */; };
 		CFF942D11EAD7CF3003D9B7E /* PlaceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF942D01EAD7CF3003D9B7E /* PlaceTableViewController.swift */; };
@@ -95,6 +97,8 @@
 		CFD374001EC0EF22002A71C1 /* Legal.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Legal.html; sourceTree = "<group>"; };
 		CFD374021EC18E12002A71C1 /* Credit.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Credit.html; sourceTree = "<group>"; };
 		CFD374041EC25ECE002A71C1 /* Help.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Help.html; sourceTree = "<group>"; };
+		CFDB74851ED3D59B001A1730 /* DocumentViewController+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DocumentViewController+Delegate.swift"; sourceTree = "<group>"; };
+		CFDB74871ED3D6BA001A1730 /* PlaceMapViewController+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PlaceMapViewController+Delegate.swift"; sourceTree = "<group>"; };
 		CFF942CC1EAD7051003D9B7E /* PlaceTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTabBarController.swift; sourceTree = "<group>"; };
 		CFF942CE1EAD7CDB003D9B7E /* PlaceMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceMapViewController.swift; sourceTree = "<group>"; };
 		CFF942D01EAD7CF3003D9B7E /* PlaceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTableViewController.swift; sourceTree = "<group>"; };
@@ -160,8 +164,10 @@
 			isa = PBXGroup;
 			children = (
 				CFC708C51EBAE698001CA87B /* DocumentViewController.swift */,
+				CFDB74851ED3D59B001A1730 /* DocumentViewController+Delegate.swift */,
 				CFB9FCC41ECBE50D0019C97D /* DocumentViewController+Helper.swift */,
 				CFF942CE1EAD7CDB003D9B7E /* PlaceMapViewController.swift */,
+				CFDB74871ED3D6BA001A1730 /* PlaceMapViewController+Delegate.swift */,
 				CFB9FCC61ECBEA910019C97D /* PlaceMapViewController+Helper.swift */,
 				CF03C44D1E972737001149DE /* PlacesViewController.swift */,
 				CFB9FCCA1ECBED550019C97D /* PlacesViewController+CoreData.swift */,
@@ -407,12 +413,14 @@
 				CFB9FCCB1ECBED550019C97D /* PlacesViewController+CoreData.swift in Sources */,
 				CFB9FCC91ECBEC620019C97D /* PlacesViewController+Helper.swift in Sources */,
 				CF20AABF1EBE71AD002C5BD2 /* CoreDataStack.swift in Sources */,
+				CFDB74861ED3D59B001A1730 /* DocumentViewController+Delegate.swift in Sources */,
 				CF261B721EA0425F00AB5DB5 /* GoogleAPIMethods.swift in Sources */,
 				CF9536941EB6BF8C0038FBDB /* GooglePlaces.swift in Sources */,
 				CF28C0361EAEE01B0042A0E6 /* GCDBlackBox.swift in Sources */,
 				CF20AABB1EBE7073002C5BD2 /* Place+CoreDataProperties.swift in Sources */,
 				CFAF7ECC1E9E942D000A3FCF /* Constants.swift in Sources */,
 				CFB0C9391ED3CA3E00672AE3 /* PlaceTableViewController+DataSource.swift in Sources */,
+				CFDB74881ED3D6BA001A1730 /* PlaceMapViewController+Delegate.swift in Sources */,
 				CFF942D11EAD7CF3003D9B7E /* PlaceTableViewController.swift in Sources */,
 				CF261B701EA0424B00AB5DB5 /* GoogleAPIConstants.swift in Sources */,
 				CF261B741EA4452D00AB5DB5 /* Cell.swift in Sources */,
