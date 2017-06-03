@@ -32,9 +32,18 @@ On the Spot includes the following extra credit features:
 * The app uses SwiftyJSON, an open source library for JSON parsing in Swift
 
 ## Key Features
-The most outstanding feature of On the Spot is that it lets you search places by just one tap.
-* On the Spot is packed with cool features. In the below sections, you can learn more about those features.
+The most outstanding feature of On the Spot is that it lets you search places by just one tap. Key features of this app include:
+* A search bar that allows users to quickly filter for a place
+* Details on if a place is open or closed
+* Customer ratings that help identify the best place
+* Ability to search places by their ranking or by their distance
+* Ability to search places within a radius
+* Real-time reference to the user’s current location relative to their destination
+* Offline access to the most recent place’s search results
+* Persistent search preferences
+* A detailed user guide
 
+In the below sections, you can learn more about those features:
 ### All Places
 On the Spot starts with this screen. In this screen, you can view your current location both as address and as coordinates. Your location data is continually updated as you move.
 
