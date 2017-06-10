@@ -24,6 +24,7 @@ On the Spot is powered by:
 * Google Places API Web Services 2.2.0
 
 ## Preview
+![on-the-spot](https://user-images.githubusercontent.com/25907551/27005415-53c8bcea-4dec-11e7-9169-ee09dede26b2.gif)
 
 ## Extra Credit Features
 On the Spot includes the following extra credit features:
